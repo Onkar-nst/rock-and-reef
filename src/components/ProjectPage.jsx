@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
+import { MapPin } from 'lucide-react'
 import { projects, services, fleet, company } from '../data/site'
 import { navigate } from '../router'
 
 /**
- * Standalone page for one project, reached from the project tiles on the home
- * page at /projects/:id. Same shell as ServicesPage: sand hero with a crumb,
- * then the body, then the shared dark call-to-action foot.
+ * Standalone page for one project, matching the initial design reference images.
  */
 export default function ProjectPage({ id }) {
   const project = projects.find((p) => p.id === id)
@@ -32,108 +31,102 @@ export default function ProjectPage({ id }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema(p)) }}
       />
 
-      {/* Split hero: copy on sand, the photo framed beside it. */}
-      <section className="pp-hero">
+      {/* ── 1. Sand Hero Section ── */}
+      <section className="pp-hero-sand">
         <div className="wrap pp-hero-grid">
           <div className="pp-hero-copy">
-            <p className="crumb">
+            <p className="pp-crumb">
               <Link to="/">Home</Link>
               <span aria-hidden="true">/</span>
               <Link to="/" hash="projects">Projects</Link>
-              <span aria-hidden="true">/</span> {p.place.split(',')[0]}
+              <span aria-hidden="true">/</span>
+              <span>{p.place.split(',')[0]}</span>
             </p>
+
             <p className="pp-kicker">
-              {svc[0] && <span>{svc[0].name}</span>}
+              {svc[0] && <span>{svc[0].name.toUpperCase()}</span>}
+              {svc[0] && p.year && <span> · </span>}
               {p.year && <span>{p.year}</span>}
             </p>
+
             <h1 className="pp-title">{p.title}</h1>
             <p className="pp-lede">{p.blurb}</p>
+
             <p className="pp-place">
-              <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
-                <path d="M7 17s6-5.2 6-10A6 6 0 001 7c0 4.8 6 10 6 10z" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="7" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-              {p.place}
+              <MapPin size={16} />
+              <span>{p.place}</span>
             </p>
-            <div className="pp-hero-links">
-              <Link to="/" hash="contact" className="btn btn-primary">
-                Discuss a similar scope
+
+            <div className="pp-hero-actions">
+              <Link to="/" hash="contact" className="pp-btn-cyan">
+                DISCUSS A SIMILAR SCOPE
               </Link>
-              <Link to="/" hash="map" className="rn-link">
+              <Link to="/" hash="map" className="pp-link-map">
                 See it on the map
               </Link>
             </div>
           </div>
+
           <figure className="pp-hero-fig">
             <img src={p.img} alt={p.title} width="1600" height="900" decoding="async" />
-            <figcaption>
-              <b>{p.metrics[0]?.k}</b>
-              <span>{p.metrics[0]?.v}</span>
-            </figcaption>
+            {p.metrics?.[0] && (
+              <div className="pp-hero-badge">
+                <span className="pp-hero-badge-num">{p.metrics[0].k}</span>
+                <span className="pp-hero-badge-label">{p.metrics[0].v.toUpperCase()}</span>
+              </div>
+            )}
           </figure>
         </div>
       </section>
 
-      {/* Overview: heading left, story right. */}
+      {/* ── 2. What We Delivered ── */}
       <section className="rn-intro">
-        <div className="wrap rn-intro-grid">
-          <h2>What we delivered</h2>
-          <div className="rn-intro-copy">
-            <p className="lead">{p.blurb}</p>
-            <p>{p.summary}</p>
-            <Link to="/" hash="map" className="rn-link">
-              See it on the map
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Facts as a spec table, like the service pages. */}
-      <section className="rn-facts">
         <div className="wrap">
-          <dl className="rn-spec">
+          <div className="rn-intro-grid">
+            <h2 className="rn-h2">
+              WHAT WE<br />DELIVERED
+            </h2>
+            <div className="rn-intro-copy">
+              <p className="lead">{p.summary}</p>
+              <Link to="/" hash="map" className="pp-link-map" style={{ marginTop: 12 }}>
+                See it on the map
+              </Link>
+            </div>
+          </div>
+
+          {/* Full Width Specification Table */}
+          <dl className="rn-spec" style={{ marginTop: 44 }}>
             <div className="rn-spec-row">
-              <dt>Client</dt>
+              <dt>CLIENT</dt>
               <dd>{p.client}</dd>
             </div>
             <div className="rn-spec-row">
-              <dt>Location</dt>
+              <dt>LOCATION</dt>
               <dd>{p.place}</dd>
             </div>
             {p.year && (
               <div className="rn-spec-row">
-                <dt>Year</dt>
+                <dt>YEAR</dt>
                 <dd>{p.year}</dd>
               </div>
             )}
             {p.detail?.facts?.map((f) => (
               <div className="rn-spec-row" key={f.k}>
-                <dt>{f.k}</dt>
-                <dd className="sm">{f.v}</dd>
+                <dt>{f.k.toUpperCase()}</dt>
+                <dd>{f.v}</dd>
               </div>
             ))}
-            <div className="rn-spec-row">
-              <dt>{svc.length > 1 ? 'Services' : 'Service'}</dt>
-              <dd className="pp-links">
-                {svc.map((s, i) => (
-                  <span key={s.id}>
-                    {i > 0 && ' · '}
-                    <Link to={`/services/${s.id}`}>{s.name}</Link>
-                  </span>
-                ))}
-              </dd>
-            </div>
           </dl>
         </div>
       </section>
 
-      {/* Long-form case study, only for projects that carry one. */}
+      {/* ── 3. Long-form Case Study Sections (Overview, Location, Scope, Methodology) ── */}
       {p.detail && <CaseStudy d={p.detail} />}
 
-      {/* Vessels that did the work. */}
+      {/* ── 4. Fleet on this Project ── */}
       <section className="rn-section">
         <div className="wrap">
-          <h2 className="rn-h2">Fleet on this project</h2>
+          <h2 className="rn-h2">FLEET ON THIS PROJECT</h2>
           <ul className="pp-fleet">
             {vessels.map((v) => (
               <li key={v.id}>
@@ -155,11 +148,11 @@ export default function ProjectPage({ id }) {
         </div>
       </section>
 
-      {/* Other projects, on the home tiles. */}
+      {/* ── 5. Other Projects ── */}
       <section className="rn-section rn-projects">
         <div className="wrap">
           <div className="proj-head">
-            <h2 className="rn-h2">Other projects</h2>
+            <h2 className="rn-h2">OTHER PROJECTS</h2>
             <Link to="/" hash="projects" className="rn-link sm">
               All projects
             </Link>
@@ -190,6 +183,7 @@ export default function ProjectPage({ id }) {
         </div>
       </section>
 
+      {/* ── 6. Bottom CTA ── */}
       <section className="rn-cta">
         <div className="wrap">
           <h2>Tell us about your seabed</h2>
@@ -217,7 +211,9 @@ function CaseStudy({ d }) {
       {d.overview && (
         <section className="rn-section pp-cs">
           <div className="wrap rn-intro-grid">
-            <h2 className="rn-h2">Project overview</h2>
+            <h2 className="rn-h2">
+              PROJECT<br />OVERVIEW
+            </h2>
             <div className="rn-intro-copy">
               {d.overview.map((t) => (
                 <p key={t}>{t}</p>
@@ -230,17 +226,19 @@ function CaseStudy({ d }) {
       {d.location && (
         <section className="rn-section pp-cs">
           <div className="wrap rn-intro-grid">
-            <h2 className="rn-h2">Location</h2>
+            <h2 className="rn-h2">LOCATION</h2>
             <div className="rn-intro-copy">
               <p>{d.location.text}</p>
-              <dl className="pp-kv">
-                {d.location.facts.map((f) => (
-                  <div key={f.k}>
-                    <dt>{f.k}</dt>
-                    <dd>{f.v}</dd>
-                  </div>
-                ))}
-              </dl>
+              {d.location.facts && (
+                <dl className="pp-kv">
+                  {d.location.facts.map((f) => (
+                    <div key={f.k}>
+                      <dt>{f.k}</dt>
+                      <dd>{f.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
             </div>
           </div>
         </section>
@@ -249,22 +247,28 @@ function CaseStudy({ d }) {
       {d.scope && (
         <section className="rn-section pp-cs">
           <div className="wrap rn-intro-grid">
-            <h2 className="rn-h2">Scope of work</h2>
+            <h2 className="rn-h2">
+              SCOPE OF<br />WORK
+            </h2>
             <div className="rn-intro-copy">
               <p>{d.scope.intro}</p>
-              <dl className="pp-kv">
-                {d.scope.table.map((f) => (
-                  <div key={f.k}>
-                    <dt>{f.k}</dt>
-                    <dd>{f.v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <ul className="pp-list">
-                {d.scope.items.map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
+              {d.scope.table && (
+                <dl className="pp-kv">
+                  {d.scope.table.map((f) => (
+                    <div key={f.k}>
+                      <dt>{f.k}</dt>
+                      <dd>{f.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {d.scope.items && (
+                <ul className="pp-list">
+                  {d.scope.items.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </section>
@@ -273,7 +277,7 @@ function CaseStudy({ d }) {
       {d.method && (
         <section className="rn-section rn-method">
           <div className="wrap">
-            <h2 className="rn-h2">Methodology and execution</h2>
+            <h2 className="rn-h2">METHODOLOGY AND EXECUTION</h2>
             <div className="rn-method-grid">
               {d.method.map((m, i) => (
                 <article className="rn-method-card" key={m.title}>
@@ -292,7 +296,7 @@ function CaseStudy({ d }) {
       {d.challenges && (
         <section className="rn-section rn-method">
           <div className="wrap">
-            <h2 className="rn-h2">Key challenges and how they were managed</h2>
+            <h2 className="rn-h2">KEY CHALLENGES AND HOW THEY WERE MANAGED</h2>
             <div className="rn-method-grid n3">
               {d.challenges.map((c, i) => (
                 <article className="rn-method-card" key={c.title}>
@@ -353,14 +357,6 @@ function Link({ to, hash, className, style, children }) {
     >
       {children}
     </a>
-  )
-}
-
-function Arrow() {
-  return (
-    <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
-      <path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" />
-    </svg>
   )
 }
 
