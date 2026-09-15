@@ -1,92 +1,98 @@
-import { fleet, fleetDetail, projects } from '../data/site'
+import { fleet, fleetDetail, projects, company } from '../data/site'
 import { navigate } from '../router'
+import { scrollToId } from '../hooks'
 
 /**
- * One register for every vessel class we own, dredgers and support craft
- * alike, so the fleet reads as a single capability rather than two tiers.
+ * Fleet register: seven vessel classes on a 4-up card grid, the eighth cell a
+ * "not sure which vessel" card that hands the choice to us.
  */
 export default function Fleet({ onOpenService }) {
   const vessels = Object.values(fleet)
   const deployments = (f) => projects.filter((p) => p.vessels.includes(f.id))
+  const go = (e, path) => {
+    e.preventDefault()
+    navigate(path)
+  }
 
   return (
     <section id="fleet" className="section-dark pad-y">
       <div className="wrap">
         <div className="fleet-head reveal">
-          <p className="eyebrow on-dark">Owned and operated</p>
-          <h2 className="section-title">The Fleet</h2>
+          <div>
+            <p className="eyebrow on-dark">Owned and operated</p>
+            <h2 className="section-title">The Fleet</h2>
+          </div>
+          <p className="fleet-head-note">
+            {vessels.length} vessel classes: dredgers, haulage, towage, crew and survey
+          </p>
         </div>
 
-        <div className="fleet-tier reveal">
-          <h3 className="fleet-tier-label">
-            <span className="n">{String(vessels.length).padStart(2, '0')}</span> Fleets
-            <em>Dredgers, haulage, towage, crew and survey</em>
-          </h3>
-
-          <ul className="fleet-primary">
-            {vessels.map((f) => (
-              <li className="fleet-card" key={f.id}>
-                {/* Default Face: Blueprint image plate + Title */}
-                <div className="fleet-card-default">
-                  <div className="fleet-plate">
-                    <img src={f.img} alt={f.name} loading="lazy" decoding="async" />
-                  </div>
-                  <h4 className="fleet-title-overlay">{f.name}</h4>
+        <ul className="fleet-grid reveal">
+          {vessels.map((f) => {
+            const used = deployments(f)
+            const page = fleetDetail[f.id] ? `/fleet/${f.id}` : null
+            const count = f.units ? f.units.length : fleetDetail[f.id]?.vessels?.length || 1
+            return (
+              <li className="fl-card" key={f.id}>
+                <div className="fl-plate">
+                  <img src={f.img} alt="" loading="lazy" decoding="async" />
+                  <span className="fl-badge">{f.role}</span>
                 </div>
-
-                {/* Hover Face: Detailed information (Role, Title, Specs, Units, Deployments) */}
-                <div className="fleet-card-hover">
-                  <p className="fleet-role">{f.role}</p>
-                  <h4>
-                    {fleetDetail[f.id] ? (
-                      <a
-                        className="fleet-link"
-                        href={`/fleet/${f.id}`}
-                        onClick={(e) => {
-                          e.preventDefault()
-                          navigate(`/fleet/${f.id}`)
-                        }}
+                <div className="fl-body">
+                  <h3>{f.name}</h3>
+                  <p className="fl-spec">{f.spec}</p>
+                  <div className="fl-meta">
+                    <span className="fl-count">
+                      <b>{count}</b> {count === 1 ? 'vessel' : 'vessels'}
+                    </span>
+                    {used.length > 0 && (
+                      <button
+                        className="fl-detail"
+                        onClick={() => onOpenService(used[0].services[0], used[0].id)}
+                        title={`Deployed on ${used[0].title}`}
                       >
-                        {f.name}
-                      </a>
-                    ) : (
-                      f.name
+                        Deployed at {used[0].place.split(',')[0]}
+                      </button>
                     )}
-                  </h4>
-                  <p className="fleet-hover-desc">{f.spec}</p>
-                  {f.units && (
-                    <div className="fleet-units">
-                      {f.units.map((u) => (
-                        <span key={u}>{u}</span>
-                      ))}
-                    </div>
+                  </div>
+                  {page ? (
+                    <a className="btn btn-primary fl-cta" href={page} onClick={(e) => go(e, page)}>
+                      View this class <Arrow />
+                    </a>
+                  ) : (
+                    <a className="btn btn-primary fl-cta" href="#contact" onClick={(e) => { e.preventDefault(); scrollToId('contact') }}>
+                      Enquire about this class <Arrow />
+                    </a>
                   )}
-                  <Deployments list={deployments(f)} onOpenService={onOpenService} />
                 </div>
               </li>
-            ))}
-          </ul>
-        </div>
+            )
+          })}
+
+          {/* Eighth cell: hand the vessel choice to us. */}
+          <li className="fl-card fl-ask">
+            <div className="fl-body">
+              <h3>Not sure which vessel?</h3>
+              <p className="fl-spec">
+                Tell us the depth, geology and site constraints and we will match the plant to the
+                job, and say what it will take to mobilise.
+              </p>
+              <a className="btn btn-primary fl-cta" href="#contact" onClick={(e) => { e.preventDefault(); scrollToId('contact') }}>
+                Talk to our team <Arrow />
+              </a>
+              <a className="fl-call" href={company.phoneHref}>or call {company.phone}</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   )
 }
 
-/** Places this vessel class has worked; each opens that project's service story. */
-function Deployments({ list, onOpenService }) {
-  if (!list.length) return null
+function Arrow() {
   return (
-    <span className="fleet-used">
-      <span className="k">Deployed at</span>
-      {list.slice(0, 3).map((p) => (
-        <button
-          key={p.id}
-          onClick={() => onOpenService(p.services[0], p.id)}
-          title={`Deployed on ${p.title}`}
-        >
-          {p.place.split(',')[0]}
-        </button>
-      ))}
-    </span>
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
+      <path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
   )
 }

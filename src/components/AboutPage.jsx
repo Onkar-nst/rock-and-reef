@@ -148,41 +148,27 @@ export default function AboutPage() {
       </section>
 
       {/* ── 3. Our Mission & Vision Section ── */}
-      <section className="ab-exact-mv">
-        <div className="wrap">
-          <div className="ab-exact-mv-head">
-            <span className="ab-exact-kicker-center">— OUR MISSION & VISION —</span>
+      <section className="ab-mv">
+        <div className="wrap ab-mv-grid">
+          <div className="ab-mv-col">
+            <p className="ab-mv-label">
+              <Target size={18} strokeWidth={1.8} /> Our mission
+            </p>
+            <p className="ab-mv-text">
+              To deliver reliable, safe and efficient dredging and marine infrastructure solutions
+              for India, creating lasting value through technical excellence, responsible practices
+              and a commitment to the people and communities we serve.
+            </p>
           </div>
-
-          <div className="ab-exact-mv-grid">
-            {/* Mission Card */}
-            <div className="ab-exact-mv-card">
-              <div className="ab-exact-mv-badge">
-                <Target size={28} strokeWidth={1.8} />
-              </div>
-              <div className="ab-exact-mv-body">
-                <h3>OUR MISSION</h3>
-                <p>
-                  To deliver reliable, safe and efficient dredging and marine infrastructure solutions for India,
-                  creating lasting value through technical excellence, responsible practices and a commitment to the
-                  people and communities we serve.
-                </p>
-              </div>
-            </div>
-
-            {/* Vision Card */}
-            <div className="ab-exact-mv-card">
-              <div className="ab-exact-mv-badge">
-                <Waves size={28} strokeWidth={1.8} />
-              </div>
-              <div className="ab-exact-mv-body">
-                <h3>OUR VISION</h3>
-                <p>
-                  To be India’s leading partner in maritime development, driving progress through innovation,
-                  sustainability and long-term impact, for stronger coastal economies and a more connected tomorrow.
-                </p>
-              </div>
-            </div>
+          <div className="ab-mv-col">
+            <p className="ab-mv-label">
+              <Waves size={18} strokeWidth={1.8} /> Our vision
+            </p>
+            <p className="ab-mv-text">
+              To be India&apos;s leading partner in maritime development, driving progress through
+              innovation, sustainability and long term impact, for stronger coastal economies and a
+              more connected tomorrow.
+            </p>
           </div>
         </div>
       </section>
