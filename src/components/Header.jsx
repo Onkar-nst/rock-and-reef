@@ -2,16 +2,18 @@ import { useState } from 'react'
 import { company, nav } from '../data/site'
 import { useScrolled, scrollToId } from '../hooks'
 import { navigate } from '../router'
+import QuoteModal from './QuoteModal'
 
 export default function Header({ active, solid = false }) {
   const scrolled = useScrolled(60)
   const [open, setOpen] = useState(false)
+  const [quote, setQuote] = useState(false)
 
-  // Services has its own page; every other nav item is a section on the home page.
+  // Services, Projects, About and Contact have their own pages; Fleet is a home section.
   const go = (e, id) => {
     e.preventDefault()
     setOpen(false)
-    if (id === 'services' || id === 'projects' || id === 'about') {
+    if (id === 'services' || id === 'projects' || id === 'about' || id === 'contact') {
       navigate(`/${id}`)
       return
     }
@@ -33,7 +35,7 @@ export default function Header({ active, solid = false }) {
           {nav.map((n) => (
             <a
               key={n.id}
-              href={n.id === 'services' || n.id === 'projects' || n.id === 'about' ? `/${n.id}` : `#${n.id}`}
+              href={['services', 'projects', 'about', 'contact'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
               className={active === n.id ? 'active' : ''}
               onClick={(e) => go(e, n.id)}
             >
@@ -43,9 +45,13 @@ export default function Header({ active, solid = false }) {
         </nav>
 
         <div className="header-cta">
-          <a className="btn btn-primary" href="#contact" onClick={(e) => go(e, 'contact')}>
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={() => { setOpen(false); setQuote(true) }}
+          >
             Get a Quote
-          </a>
+          </button>
           <button
             className="burger"
             aria-label="Menu"
@@ -64,7 +70,7 @@ export default function Header({ active, solid = false }) {
           {nav.map((n) => (
             <a
               key={n.id}
-              href={n.id === 'services' || n.id === 'projects' || n.id === 'about' ? `/${n.id}` : `#${n.id}`}
+              href={['services', 'projects', 'about', 'contact'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
               onClick={(e) => go(e, n.id)}
             >
               {n.label}
@@ -73,6 +79,8 @@ export default function Header({ active, solid = false }) {
           <a href={company.phoneHref}>Call {company.phone}</a>
         </div>
       )}
+
+      <QuoteModal open={quote} onClose={() => setQuote(false)} />
     </header>
   )
 }

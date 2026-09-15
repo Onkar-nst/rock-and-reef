@@ -18,6 +18,7 @@ import ProjectPage from './components/ProjectPage'
 import ProjectsPage from './components/ProjectsPage'
 import FleetPage from './components/FleetPage'
 import AboutPage from './components/AboutPage'
+import ContactPage from './components/ContactPage'
 import { useRoute, navigate } from './router'
 
 export default function App() {
@@ -38,6 +39,17 @@ export default function App() {
       <>
         <Header active="about" solid />
         <AboutPage />
+        <Footer />
+        <WhatsApp />
+      </>
+    )
+  }
+
+  if (route === '/contact') {
+    return (
+      <>
+        <Header active="contact" solid />
+        <ContactPage />
         <Footer />
         <WhatsApp />
       </>

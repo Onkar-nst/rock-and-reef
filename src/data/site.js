@@ -407,26 +407,31 @@ export const services = [
 export const differentiators = [
   {
     title: 'Unparalleled Execution',
+    short: 'On programme, in live ports',
     img: '/img/industrial-port-de-barcelona-1.jpg',
     text: 'Projects delivered on programme in live ports, against monsoon siltation, currents and rock.',
   },
   {
     title: 'Extensive Experience',
+    short: '25+ years, 100+ works',
     img: '/img/extensive-experirnrce.jpg',
     text: 'Over 25 years and 100+ dredging works across India, from harbours to Himalayan reservoirs.',
   },
   {
     title: 'Technology & Innovation',
+    short: 'Dredgers built in house',
     img: '/img/Technological-Advancements-1.jpg',
     text: 'Dredgers tailored and customised in house, including our own advanced backhoe, Rock King.',
   },
   {
     title: 'Client Centric Approach',
+    short: 'Built around your brief',
     img: '/img/Dredging-Services.jpg',
     text: 'Tailored solutions built around each client\u2019s requirements, with open communication and transparency from mobilisation to handover.',
   },
   {
     title: 'Environmental Stewardship',
+    short: 'Sustainable by method',
     img: '/img/about-us-2-min.jpg',
     text: 'Sustainable sediment management, geotextile placement and community engagement built into method statements.',
   },

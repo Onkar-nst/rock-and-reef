@@ -1,5 +1,7 @@
 import { company, differentiators } from '../data/site'
 import { scrollToId } from '../hooks'
+import SnapRow from './SnapRow'
+import { useIsMobile } from '../hooks'
 
 const ADV_PATHS = [
   'M3 20h18M6 20V9l6-4 6 4v11M10 20v-5h4v5',
@@ -18,6 +20,7 @@ function AdvIcon({ index }) {
 }
 
 export default function About() {
+  const mobile = useIsMobile()
   return (
     <>
       {/* ── 1. Hero — full-bleed image with overlay + content bottom-left ── */}
@@ -29,6 +32,46 @@ export default function About() {
         </div>
 
         <div className="wrap abv2-hero-inner">
+          {mobile ? (
+            /* Phones: the copy-heavy column becomes a photo, one line and
+               three proof tiles, so it reads at a glance instead of as an essay. */
+            <div className="abv2-hero-body abv2-hero-m">
+              <span className="abv2-kicker">
+                <span className="abv2-kicker-line" />
+                Who we are
+              </span>
+              <h2 className="abv2-hero-title">Built for India's hardest seabeds</h2>
+              <figure className="abv2-m-photo">
+                <img src="/img/Banner-Image.jpg" alt="Rock and Reef dredger at work" loading="lazy" decoding="async" />
+                <figcaption>Capital dredging, own fleet, own crews</figcaption>
+              </figure>
+              <p className="abv2-m-lede">
+                Our directors built the very dredgers we deploy, so we take on constraints others
+                schedule around.
+              </p>
+              <ul className="abv2-m-proof">
+                <li>
+                  <b>3</b>
+                  <span>Dredger classes, owned</span>
+                </li>
+                <li>
+                  <b>25+</b>
+                  <span>Years across India</span>
+                </li>
+                <li>
+                  <b>Own</b>
+                  <span>Yard, build and repair</span>
+                </li>
+              </ul>
+              <a
+                className="btn btn-primary"
+                href="#sustainability"
+                onClick={(e) => { e.preventDefault(); scrollToId('sustainability') }}
+              >
+                Learn More About Us
+              </a>
+            </div>
+          ) : (
           <div className="abv2-hero-body">
             <span className="abv2-kicker">
               <span className="abv2-kicker-line" />
@@ -52,6 +95,7 @@ export default function About() {
               Learn More About Us
             </a>
           </div>
+          )}
 
           {/* Right floating image card */}
           <div className="abv2-hero-img-card">
@@ -82,22 +126,47 @@ export default function About() {
             </p>
           </div>
 
-          <ul className="abv2-adv-strip">
-            {differentiators.map((d, i) => (
-              <li className="abv2-adv-card" key={d.title}>
-                <img src={d.img} alt="" loading="lazy" decoding="async" />
-                <div className="abv2-adv-card-overlay" />
-                <div className="abv2-adv-card-body">
-                  <span className="abv2-adv-icon" aria-hidden="true">
-                    <AdvIcon index={i} />
+          {/* Five-up strip on desktop; a compact photo-thumb list on phones. */}
+          {mobile ? (
+            <ul className="abv2-adv-rows">
+              {differentiators.map((d, i) => (
+                <li key={d.title}>
+                  <span className="abv2-adv-row-thumb" aria-hidden="true">
+                    <img src={d.img} alt="" loading="lazy" decoding="async" />
+                    <span className="abv2-adv-row-ic"><AdvIcon index={i} /></span>
                   </span>
-                  <h3 className="abv2-adv-card-title">{d.title}</h3>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <span className="abv2-adv-row-text">
+                    <span className="abv2-adv-row-n">{String(i + 1).padStart(2, '0')}</span>
+                    <h3>{d.title}</h3>
+                    <p>{d.short}</p>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul className="abv2-adv-strip">
+              {differentiators.map((d, i) => (
+                <AdvCard key={d.title} d={d} i={i} as="li" />
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     </>
+  )
+}
+
+function AdvCard({ d, i, as: Tag = 'div' }) {
+  return (
+    <Tag className="abv2-adv-card">
+      <img src={d.img} alt="" loading="lazy" decoding="async" />
+      <div className="abv2-adv-card-overlay" />
+      <div className="abv2-adv-card-body">
+        <span className="abv2-adv-icon" aria-hidden="true">
+          <AdvIcon index={i} />
+        </span>
+        <h3 className="abv2-adv-card-title">{d.title}</h3>
+      </div>
+    </Tag>
   )
 }

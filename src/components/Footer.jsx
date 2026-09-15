@@ -1,10 +1,22 @@
-import { company, nav, services } from '../data/site'
+import { company, nav, services, serviceDetail } from '../data/site'
 import { scrollToId } from '../hooks'
+import { navigate } from '../router'
+
+// Pages that exist on their own route; everything else is a home-page section.
+const PAGES = { about: '/about', services: '/services', projects: '/projects' }
 
 export default function Footer() {
   const go = (e, id) => {
     e.preventDefault()
-    scrollToId(id)
+    if (PAGES[id]) return navigate(PAGES[id])
+    if (window.location.pathname === '/') scrollToId(id)
+    else navigate('/', { hash: id === 'top' ? undefined : id })
+  }
+
+  const goService = (e, s) => {
+    e.preventDefault()
+    if (serviceDetail[s.id]) navigate(`/services/${s.id}`)
+    else navigate('/services', { hash: s.id })
   }
 
   return (
@@ -23,10 +35,10 @@ export default function Footer() {
           <div>
             <h5>Quick Links</h5>
             <ul>
-              <li><a href="#top" onClick={(e) => go(e, 'top')}>Home</a></li>
+              <li><a href="/" onClick={(e) => go(e, 'top')}>Home</a></li>
               {nav.map((n) => (
                 <li key={n.id}>
-                  <a href={`#${n.id}`} onClick={(e) => go(e, n.id)}>{n.label}</a>
+                  <a href={PAGES[n.id] || `/#${n.id}`} onClick={(e) => go(e, n.id)}>{n.label}</a>
                 </li>
               ))}
             </ul>
@@ -37,7 +49,7 @@ export default function Footer() {
             <ul>
               {services.slice(0, 6).map((s) => (
                 <li key={s.id}>
-                  <a href="#services" onClick={(e) => go(e, 'services')}>{s.name}</a>
+                  <a href={serviceDetail[s.id] ? `/services/${s.id}` : `/services#${s.id}`} onClick={(e) => goService(e, s)}>{s.name}</a>
                 </li>
               ))}
             </ul>

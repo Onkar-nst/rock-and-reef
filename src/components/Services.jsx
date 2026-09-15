@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { services, serviceDetail } from '../data/site'
 import { navigate } from '../router'
-import { scrollToId } from '../hooks'
+import { scrollToId, useIsMobile } from '../hooks'
+import SnapRow from './SnapRow'
 
 /**
  * Services index: a numbered list driving one large preview. The arrow on each
@@ -11,6 +12,7 @@ export default function Services() {
   // Which service the preview panel is showing; follows hover, then selection.
   const [previewId, setPreviewId] = useState(services[0].id)
   const preview = services.find((s) => s.id === previewId) || services[0]
+  const mobile = useIsMobile()
 
   return (
     <section id="services" className="section-dark pad-y">
@@ -36,6 +38,35 @@ export default function Services() {
           </a>
         </div>
 
+        {mobile ? (
+          /* Phones: no hover, so the list-and-preview becomes a swipe row of
+             image cards, each a link straight to that service's page. */
+          <SnapRow className="svc-snap reveal" ariaLabel="Services">
+            {services.map((s, i) => (
+              <a
+                className="svc-card"
+                key={s.id}
+                href={serviceDetail[s.id] ? `/services/${s.id}` : `/services#${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  serviceDetail[s.id]
+                    ? navigate(`/services/${s.id}`)
+                    : navigate('/services', { hash: s.id })
+                }}
+              >
+                <img src={s.img} alt="" loading="lazy" decoding="async" />
+                <span className="svc-card-body">
+                  <span className="svc-card-n">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="svc-card-name">{s.name}</span>
+                  <span className="svc-card-blurb">{s.blurb}</span>
+                  <span className="svc-card-go">
+                    Explore <Arrow />
+                  </span>
+                </span>
+              </a>
+            ))}
+          </SnapRow>
+        ) : (
         <div className="svc-split reveal">
           <ol className="svc-list">
             {services.map((s, i) => {
@@ -90,6 +121,7 @@ export default function Services() {
             </figcaption>
           </figure>
         </div>
+        )}
 
       </div>
     </section>

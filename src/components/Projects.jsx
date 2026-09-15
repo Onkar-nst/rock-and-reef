@@ -2,11 +2,14 @@ import { useRef } from 'react'
 import { projects, services } from '../data/site'
 import { scrollToId } from '../hooks'
 import { navigate } from '../router'
+import SnapRow from './SnapRow'
+import { useIsMobile } from '../hooks'
 
 const serviceName = (id) => services.find((s) => s.id === id)?.name || id
 
 export default function Projects({ onOpenService }) {
   const trackRef = useRef(null)
+  const mobile = useIsMobile()
 
   // Advance by exactly one card, whatever the current breakpoint's card width is.
   const scrollByCard = (dir) => {
@@ -58,11 +61,19 @@ export default function Projects({ onOpenService }) {
         </div>
 
         <div className="proj-carousel reveal">
-          <div className="proj-track" ref={trackRef}>
-            {projects.map((p) => (
-              <ProjectTile key={p.id} project={p} onOpenService={onOpenService} />
-            ))}
-          </div>
+          {mobile ? (
+            <SnapRow className="proj-snap" ariaLabel="Featured projects" counter>
+              {projects.map((p) => (
+                <ProjectTile key={p.id} project={p} onOpenService={onOpenService} />
+              ))}
+            </SnapRow>
+          ) : (
+            <div className="proj-track" ref={trackRef}>
+              {projects.map((p) => (
+                <ProjectTile key={p.id} project={p} onOpenService={onOpenService} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

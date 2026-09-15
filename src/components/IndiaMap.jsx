@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { projects, services } from '../data/site'
 import { INDIA_PATH, MAP_WIDTH, MAP_HEIGHT, project } from '../data/indiaPath'
-import { scrollToId } from '../hooks'
+import { scrollToId, useIsMobile } from '../hooks'
+import { navigate } from '../router'
 
 const serviceName = (id) => services.find((s) => s.id === id)?.name || id
 
@@ -56,6 +57,7 @@ function frame(pins) {
 export default function IndiaMap({ focusProject, onOpenService }) {
   const [activeId, setActiveId] = useState(null)
   const [openRegion, setOpenRegion] = useState(null)
+  const mobile = useIsMobile(900)
 
   // Selecting a pin (or arriving from another section) opens the group it sits in.
   const select = (id) => {
@@ -79,6 +81,13 @@ export default function IndiaMap({ focusProject, onOpenService }) {
   return (
     <section id="map" className="section-dark map-dark pad-y">
       <div className="wrap map-grid reveal">
+        {mobile ? (
+          <MobileList
+            openRegion={openRegion}
+            setOpenRegion={setOpenRegion}
+            setActiveId={setActiveId}
+          />
+        ) : (
         <div className="map-list">
           {REGIONS.map(({ region, items }) => {
             const open = openRegion === region
@@ -156,6 +165,7 @@ export default function IndiaMap({ focusProject, onOpenService }) {
             )
           })}
         </div>
+        )}
 
         <figure className="map-figure">
           <svg
@@ -210,10 +220,75 @@ export default function IndiaMap({ focusProject, onOpenService }) {
           </svg>
 
           <p className="map-note">
-            Six featured projects across four states. Boundaries shown are indicative.
+            {projects.length} featured projects across {REGIONS.length} states. Boundaries shown are indicative.
           </p>
         </figure>
       </div>
     </section>
+  )
+}
+
+/**
+ * Phone layout: region chips that frame the map, and a plain list of the
+ * chosen region's projects linking to their pages. Tap targets stay large and
+ * nothing is stacked on top of the map.
+ */
+function MobileList({ openRegion, setOpenRegion, setActiveId }) {
+  const current = REGIONS.find((r) => r.region === openRegion) || null
+  const items = current ? current.items : projects
+  return (
+    <div className="map-mobile">
+      <div className="map-chips" role="tablist" aria-label="Filter by state">
+        <button
+          role="tab"
+          aria-selected={!openRegion}
+          className={`map-chip ${!openRegion ? 'on' : ''}`}
+          onClick={() => {
+            setActiveId(null)
+            setOpenRegion(null)
+          }}
+        >
+          All <span>{projects.length}</span>
+        </button>
+        {REGIONS.map(({ region, items: list }) => (
+          <button
+            key={region}
+            role="tab"
+            aria-selected={openRegion === region}
+            className={`map-chip ${openRegion === region ? 'on' : ''}`}
+            onClick={() => {
+              setActiveId(null)
+              setOpenRegion(region)
+            }}
+          >
+            {region} <span>{list.length}</span>
+          </button>
+        ))}
+      </div>
+
+      <ul className="map-rows">
+        {items.map((p) => (
+          <li key={p.id}>
+            <a
+              href={`/projects/${p.id}`}
+              onClick={(e) => {
+                e.preventDefault()
+                navigate(`/projects/${p.id}`)
+              }}
+            >
+              <img src={p.img} alt="" loading="lazy" decoding="async" />
+              <span className="map-row-body">
+                <b>{p.title}</b>
+                <small>
+                  {p.place.split(',')[0]}
+                  {p.year ? ` · ${p.year}` : ''}
+                </small>
+              </span>
+              <span className="map-row-go" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

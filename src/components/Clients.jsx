@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { clients } from '../data/site'
+import { useIsMobile } from '../hooks'
 
 /**
  * Client logo wall, shown as two marquee strips scrolling in opposite
@@ -40,6 +41,7 @@ function Strip({ items, reverse, speed }) {
 }
 
 export default function Clients() {
+  const mobile = useIsMobile()
   const half = Math.ceil(clients.length / 2)
   const top = clients.slice(0, half)
   const bottom = clients.slice(half)
@@ -53,10 +55,21 @@ export default function Clients() {
         </div>
       </div>
 
-      <div className="client-marquee reveal" aria-label="Client logos">
-        <Strip items={top} speed={46} />
-        <Strip items={bottom} speed={54} reverse />
-      </div>
+      {mobile ? (
+        // Phones: a static logo grid, so this section isn't another moving row.
+        <div className="wrap reveal">
+          <ul className="client-grid" aria-label="Client logos">
+            {clients.map((c) => (
+              <Logo key={c.name} {...c} />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="client-marquee reveal" aria-label="Client logos">
+          <Strip items={top} speed={46} />
+          <Strip items={bottom} speed={54} reverse />
+        </div>
+      )}
     </section>
   )
 }
