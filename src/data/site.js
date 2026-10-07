@@ -56,8 +56,7 @@ export const fleet = {
     img: '/img/Barge.png',
     tier: 'support',
     role: 'Sediment haulage',
-    spec: 'Self propelled hoppers carrying dredged material to the designated disposal ground.',
-    units: ['Rock 1', 'Rock 9', 'Rock 10', 'Rock 12', 'Phoenix', 'Reef 1'],
+    spec: 'Self propelled and split hoppers carrying dredged material to the designated disposal ground.',
   },
   tug: {
     id: 'tug',
@@ -66,11 +65,10 @@ export const fleet = {
     tier: 'support',
     role: 'Towage and positioning',
     spec: 'Towage, positioning and station keeping for the dredging spread.',
-    units: ['Rockstar', 'Premrath', 'Porunai'],
   },
-  launch: {
-    id: 'launch',
-    name: 'Motor Launch',
+  workboat: {
+    id: 'workboat',
+    name: 'Workboats',
     img: '/img/Motor-Lauch.png',
     tier: 'support',
     role: 'Crew transfer',
@@ -495,118 +493,193 @@ export const clients = [
   { name: 'Kink Revealers', img: '/img/clients/kink-revealers.png' },
 ]
 
-/**
- * Long-form content for the individual service pages. Only services listed here
- * get their own page; the rest fall back to the services index for now.
- */
 // --- Fleet detail pages ---------------------------------------------------
-// One page per vessel class that has a spec sheet, at /fleet/<id>. Specs are
-// transcribed from the vessel's data sheet; the source PDF is linked for download.
+// Each class has a page at /fleet/<class> listing its vessels, and each vessel
+// has its own page at /fleet/<class>/<vessel>. `specs` holds the particulars
+// from the fleet register; `keys` names the figures a class leads with, in
+// order (cards show the first three present, vessel pages the first four).
 export const fleetDetail = {
+  backhoe: {
+    headline: 'Pontoon-mounted excavators for rock and hard strata',
+    intro: [
+      'A backhoe dredger is a heavy hydraulic excavator mounted on a spud-anchored pontoon. The bucket digs with a direct, controlled force that suction plant cannot match, which makes it the tool of choice for rock, boulder clay, compacted gravel and debris, and for precise work close to existing structures.',
+      'Both of our backhoe dredgers sit on 40 m pontoons and were built around equipment developed in-house. They load straight into hopper barges moored alongside, so the dredger keeps digging while the barges cycle to the disposal ground.',
+    ],
+    keys: ['Maximum dredging depth', 'Bucket capacity', 'Excavator power', 'Overall length'],
+    vessels: [
+      {
+        id: 'rock-king',
+        name: 'Rock King',
+        type: 'Backhoe dredger',
+        summary: [
+          'Rock King carries a Caterpillar 395 excavator rated at 542 HP (404 kW) on a 40 m by 12.5 m pontoon, digging to 16 m below the waterline.',
+          'It works with two buckets, 3.8 m³ and 1.8 m³, so the crew can trade volume for breakout force: the larger bucket for loose and medium material, the smaller one where the ground turns to rock. A 2 m loaded draft keeps it working in shallow approaches.',
+        ],
+        specs: [
+          ['Overall length', '40 m'],
+          ['Overall width', '12.5 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '2 m'],
+          ['Excavator', 'CAT 395'],
+          ['Excavator power', '542 HP / 404 kW'],
+          ['Maximum dredging depth', '16 m'],
+          ['Bucket capacity', '3.8 m³ / 1.8 m³'],
+          ['Gross tonnage', '365 MT'],
+          ['Net tonnage', '110 MT'],
+        ],
+      },
+      {
+        id: 'octopus',
+        name: 'Octopus',
+        type: 'Backhoe dredger',
+        summary: [
+          'Octopus is the heavier of our two backhoe dredgers: a Liebherr R 984 C excavator rated at 685 HP (504 kW), working buckets of 5 m³ and 2.5 m³ to a depth of 15.5 m.',
+          'Its deeper 3 m hull gives a stiffer platform for the larger bucket, which suits high-volume capital dredging and rock removal where output per cycle matters.',
+        ],
+        specs: [
+          ['Overall length', '40 m'],
+          ['Overall width', '12.5 m'],
+          ['Moulded depth', '3 m'],
+          ['Loaded draft', '2.5 m'],
+          ['Excavator', 'Liebherr R 984 C'],
+          ['Excavator power', '685 HP / 504 kW'],
+          ['Maximum dredging depth', '15.5 m'],
+          ['Bucket capacity', '5 m³ / 2.5 m³'],
+          ['Gross tonnage', '407 MT'],
+          ['Net tonnage', '123 MT'],
+        ],
+      },
+    ],
+  },
+
+  grab: {
+    headline: 'Crane-mounted grabs for berths and confined pockets',
+    intro: [
+      'A grab dredger lowers a clamshell bucket from a crane on a stationary pontoon and lifts the material straight up. Because the grab works vertically, it reaches tight against quay walls, jetty piles and berth pockets where a cutter or backhoe cannot manoeuvre.',
+      'We run five grab dredgers. Four carry 4.5 m³ grabs on American and Liebherr cranes; Kartar is the smallest and lightest of the group. Loaded drafts between 0.6 m and 1.6 m let them work in shallow harbours, creeks and rivers.',
+    ],
+    keys: ['Bucket capacity', 'Crane', 'Loaded draft', 'Overall length'],
+    vessels: [
+      {
+        id: 'rock-3',
+        name: 'Rock 3',
+        type: 'Grab dredger',
+        summary: [
+          'Rock 3 works a 4.5 m³ grab from an American 9270 crane. At 14 m it is one of the two widest pontoons in the group, giving a steady platform for heavy lifts alongside berths.',
+        ],
+        specs: [
+          ['Overall length', '35 m'],
+          ['Overall width', '14 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '1 m'],
+          ['Crane', 'American 9270'],
+          ['Bucket capacity', '4.5 m³'],
+          ['Gross tonnage', '299 MT'],
+          ['Net tonnage', '90 MT'],
+        ],
+      },
+      {
+        id: 'rock-6',
+        name: 'Rock 6',
+        type: 'Grab dredger',
+        summary: [
+          'Rock 6 pairs an American 9270 crane with a 4.5 m³ grab on a 36 m pontoon. Its 0.6 m loaded draft is the shallowest in the grab fleet, so it can reach berths and channels before they have been deepened.',
+        ],
+        specs: [
+          ['Overall length', '36 m'],
+          ['Overall width', '12 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '0.6 m'],
+          ['Crane', 'American 9270'],
+          ['Bucket capacity', '4.5 m³'],
+          ['Gross tonnage', '299.21 MT'],
+          ['Net tonnage', '89.76 MT'],
+        ],
+      },
+      {
+        id: 'rock-15',
+        name: 'Rock 15',
+        type: 'Grab dredger',
+        summary: [
+          'Rock 15 is the largest grab dredger by tonnage, a Liebherr 882 crane working a 4.5 m³ grab from a 35 m by 14 m pontoon.',
+        ],
+        specs: [
+          ['Overall length', '35 m'],
+          ['Overall width', '14 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '1 m'],
+          ['Crane', 'Liebherr 882'],
+          ['Bucket capacity', '4.5 m³'],
+          ['Gross tonnage', '343 MT'],
+          ['Net tonnage', '103 MT'],
+        ],
+      },
+      {
+        id: 'rock-18',
+        name: 'Rock 18',
+        type: 'Grab dredger',
+        summary: [
+          'Rock 18 carries a Liebherr 855 crane and a 4.5 m³ grab on a 36 m by 12 m pontoon, a compact unit for berth pockets and maintenance dredging.',
+        ],
+        specs: [
+          ['Overall length', '36 m'],
+          ['Overall width', '12 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '1.6 m'],
+          ['Crane', 'Liebherr 855'],
+          ['Bucket capacity', '4.5 m³'],
+          ['Gross tonnage', '274 MT'],
+          ['Net tonnage', '82 MT'],
+        ],
+      },
+      {
+        id: 'kartar',
+        name: 'Kartar',
+        type: 'Grab dredger',
+        summary: [
+          'Kartar is the smallest grab dredger in the fleet: a Tata 955 crane on a 26 m by 10 m pontoon drawing 0.6 m loaded. It goes where larger plant cannot, into narrow creeks, small harbours and inland waters.',
+        ],
+        specs: [
+          ['Overall length', '26 m'],
+          ['Overall width', '10 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '0.6 m'],
+          ['Crane', 'Tata 955'],
+          ['Bucket capacity', '2.5 m³'],
+          ['Gross tonnage', '200.34 MT'],
+          ['Net tonnage', '60.1 MT'],
+        ],
+      },
+    ],
+  },
+
   csd: {
     // Photo behind the class page hero; falls back to the silhouette plate if missing.
     hero: '/img/fleet/csd-hero.jpg',
     headline: 'Continuous cutting and pumping through floating pipeline',
     intro: [
       'Cutter suction dredgers cut the seabed with a rotating cutter head and pump the loosened material ashore or to a reclamation area through a floating pipeline, without a hopper cycle. That makes them the most productive plant for reservoirs, channels, inland waterways and reclamation, where the discharge point is a fixed distance away.',
-      'Our cutter suction dredger is a dismountable IHC Beaver class unit that travels by road, rail or sea, so we can mobilise it to reservoirs and rivers well beyond reach of a sea-going spread.',
+      'Brahmaputra, an IHC Beaver 45, is dismountable and travels by road, rail or sea to reservoirs and rivers well beyond the reach of a sea-going spread. Rock 21 is a smaller, lighter unit for shallower and more confined work.',
     ],
+    keys: ['Maximum dredging depth', 'Cutter diameter', 'Overall length', 'Overall width'],
     vessels: [
       {
         id: 'brahmaputra',
-        name: 'CSD Brahmaputra',
+        name: 'Brahmaputra',
         type: 'IHC Beaver 45 cutter suction dredger',
         img: '/img/csd-brahmaputra.jpg',
         pdf: '/docs/csd-brahmaputra-specifications.pdf',
-        summary:
+        summary: [
           'A robust and highly productive dredger built for low cost per cubic metre: an exceptional rate of pumping power, a Cutter Special pump with a large ball passage for high availability, a single low maintenance diesel engine, and first class ergonomics and diagnostics on board.',
-        headline: [
-          { k: 'Dredging depth', v: '14.0 m' },
-          { k: 'Discharge diameter', v: '450 mm' },
-          { k: 'Total power', v: '895 kW' },
-          { k: 'Length overall', v: '26.60 m' },
         ],
         specs: [
-          {
-            group: 'Dimensions',
-            rows: [
-              ['Length overall (ladder raised), approx.', '26.60 m'],
-              ['Length over pontoons', '16.96 m'],
-              ['Breadth', '6.99 m'],
-              ['Depth', '2.01 m'],
-              ['Mean draught with full bunkers', '1.40 m'],
-              ['Maximum standard dredging depth', '14.0 m'],
-              ['Suction pipe diameter', '550 mm'],
-              ['Discharge pipe diameter', '450 mm'],
-              ['Total installed power', '895 kW'],
-            ],
-          },
-          {
-            group: 'Swing width with 35° swing each side',
-            rows: [
-              ['At maximum dredging depth', '23.5 m'],
-              ['At minimum dredging depth', '29.0 m'],
-            ],
-          },
-          {
-            group: 'Dredge pump',
-            rows: [
-              ['Type', 'IHC HRCS 108-23-45, single-walled'],
-              ['Engine type', 'Caterpillar C32 TTA Acert'],
-              ['Heavy duty power', '895 kW @ 1,800 rpm'],
-              ['Specific fuel consumption', '205.9 g/kWh'],
-              ['Ball passage', '225 mm'],
-            ],
-          },
-          {
-            group: 'Electrical installation',
-            rows: [
-              ['Voltage', '24 V DC'],
-              ['Battery capacity', '400 Ah'],
-            ],
-          },
-          {
-            group: 'Cutter',
-            rows: [
-              ['Type', 'IHC Lancelot 1330-120-10CB'],
-              ['Power at shaft', '110 kW'],
-              ['Diameter', '1,330 mm'],
-              ['Maximum speed, approx.', '34 rpm'],
-            ],
-          },
-          {
-            group: 'Ladder and swing winches',
-            rows: [
-              ['Line pull, first layer', '57 kN'],
-              ['Maximum line speed', '25 m/min'],
-              ['Wire diameter', '18 mm'],
-              ['Drum diameter', '390 mm'],
-              ['Swing wires length', '100 m'],
-              ['Anchor weight', '360 kg'],
-            ],
-          },
-          {
-            group: 'Spuds',
-            rows: [
-              ['Length', '13.85 m'],
-              ['Diameter', '457 mm'],
-              ['Weight', '2,260 kg'],
-            ],
-          },
-          {
-            group: 'Spud hoisting cylinders',
-            rows: [
-              ['Force', '100 kN'],
-              ['Spud stroke (each time), approx.', '3.5 m'],
-            ],
-          },
-          {
-            group: 'Deck crane',
-            rows: [
-              ['Lifting power', '20 kN'],
-              ['Outreach', '2.80 m'],
-            ],
-          },
+          ['Overall length', '30.91 m'],
+          ['Overall width', '6.99 m'],
+          ['Moulded depth', '2.01 m'],
+          ['Cutter diameter', '450 mm'],
+          ['Maximum dredging depth', '10 m'],
+          ['Gross tonnage', '53.33 MT'],
+          ['Net tonnage', '16 MT'],
         ],
         features: [
           'Spare parts available from stock',
@@ -640,10 +713,305 @@ export const fleetDetail = {
           note: 'Calculated output curves only indicate pumping capacity, based on the maximum available power on the pump shaft and free-flowing material. In practice, properties vary from free-flowing, easily excavated to compacted, hard-to-excavate material; the nature of the material and local job conditions must be considered when estimating actual outputs.',
         },
       },
+      {
+        id: 'rock-21',
+        name: 'Rock 21',
+        type: 'Cutter suction dredger',
+        summary: [
+          'Rock 21 is our compact cutter suction dredger: 20.1 m overall with a 350 mm cutter, dredging to 9 m. Its small hull and 1.51 m moulded depth suit shallow reservoirs, canals and intake channels where a larger dredger cannot be launched or turned.',
+        ],
+        specs: [
+          ['Overall length', '20.1 m'],
+          ['Overall width', '5.72 m'],
+          ['Moulded depth', '1.51 m'],
+          ['Cutter diameter', '350 mm'],
+          ['Maximum dredging depth', '9 m'],
+          ['Gross tonnage', '38.33 MT'],
+          ['Net tonnage', '12 MT'],
+        ],
+      },
+    ],
+  },
+
+  barge: {
+    headline: 'Hopper barges that keep the dredgers digging',
+    intro: [
+      'Hopper barges carry dredged material from the dredger to the designated disposal ground. A dredger is only as productive as the barges cycling behind it, so we size the barge fleet to the dredger and the sailing distance to keep the digging continuous.',
+      'Five of our six barges are self-propelled hoppers between 46 m and 58 m long that sail to the dump site under their own power. Rock 5 is a split hopper barge: the hull opens along its length to drop the load in one go.',
+    ],
+    keys: ['Gross tonnage', 'Overall length', 'Loaded draft', 'Overall width'],
+    vessels: [
+      {
+        id: 'reef-1',
+        name: 'Reef 1',
+        type: 'Self-propelled hopper barge',
+        summary: [
+          'Reef 1 is the largest barge in the fleet at 58 m overall and 633 MT gross, the workhorse for long hauls to offshore disposal grounds.',
+        ],
+        specs: [
+          ['Type', 'Self-propelled hopper barge'],
+          ['Overall length', '58 m'],
+          ['Overall width', '13 m'],
+          ['Moulded depth', '3.6 m'],
+          ['Loaded draft', '2.8 m'],
+          ['Gross tonnage', '633 MT'],
+          ['Net tonnage', '349 MT'],
+        ],
+      },
+      {
+        id: 'rock-1',
+        name: 'Rock 1',
+        type: 'Self-propelled hopper barge',
+        summary: [
+          'Rock 1 is a 51 m self-propelled hopper of 622 MT gross, working alongside the backhoe and grab dredgers on capital and maintenance dredging.',
+        ],
+        specs: [
+          ['Type', 'Self-propelled hopper barge'],
+          ['Overall length', '51 m'],
+          ['Overall width', '12 m'],
+          ['Moulded depth', '3.6 m'],
+          ['Loaded draft', '3 m'],
+          ['Gross tonnage', '622 MT'],
+          ['Net tonnage', '201 MT'],
+        ],
+      },
+      {
+        id: 'rock-5',
+        name: 'Rock 5',
+        type: 'Split hopper barge',
+        summary: [
+          'Rock 5 is a split hopper barge: the hull opens along its length to release the whole load at once. A 0.5 m loaded draft lets it work in shallow water close to the dredger.',
+        ],
+        specs: [
+          ['Type', 'Split hopper barge'],
+          ['Overall length', '44.22 m'],
+          ['Overall width', '7.5 m'],
+          ['Moulded depth', '2.7 m'],
+          ['Loaded draft', '0.5 m'],
+          ['Gross tonnage', '262.1 MT'],
+          ['Net tonnage', '78.6 MT'],
+        ],
+      },
+      {
+        id: 'rock-9',
+        name: 'Rock 9',
+        type: 'Self-propelled hopper barge',
+        summary: [
+          'Rock 9 is a 46 m self-propelled hopper of 533 MT gross, a compact barge for tighter harbours and shorter disposal runs.',
+        ],
+        specs: [
+          ['Type', 'Self-propelled hopper barge'],
+          ['Overall length', '46 m'],
+          ['Overall width', '12 m'],
+          ['Moulded depth', '3.4 m'],
+          ['Loaded draft', '3 m'],
+          ['Gross tonnage', '533 MT'],
+          ['Net tonnage', '163 MT'],
+        ],
+      },
+      {
+        id: 'rock-12',
+        name: 'Rock 12',
+        type: 'Self-propelled hopper barge',
+        summary: [
+          'Rock 12 is a 52 m self-propelled hopper on a slim 10.2 m beam, 521.56 MT gross.',
+        ],
+        specs: [
+          ['Type', 'Self-propelled hopper barge'],
+          ['Overall length', '52 m'],
+          ['Overall width', '10.2 m'],
+          ['Moulded depth', '3.5 m'],
+          ['Loaded draft', '3 m'],
+          ['Gross tonnage', '521.56 MT'],
+          ['Net tonnage', '156.47 MT'],
+        ],
+      },
+      {
+        id: 'phoenix-1',
+        name: 'Phoenix 1',
+        type: 'Self-propelled hopper barge',
+        summary: [
+          'Phoenix 1 shares Rock 1’s dimensions, 51 m overall and 622 MT gross, so the two can run as a matched pair behind a single dredger.',
+        ],
+        specs: [
+          ['Type', 'Self-propelled hopper barge'],
+          ['Overall length', '51 m'],
+          ['Overall width', '12 m'],
+          ['Moulded depth', '3.6 m'],
+          ['Loaded draft', '3 m'],
+          ['Gross tonnage', '622 MT'],
+          ['Net tonnage', '201 MT'],
+        ],
+      },
+    ],
+  },
+
+  tug: {
+    headline: 'Towage, positioning and station keeping',
+    intro: [
+      'Most dredging plant has no propulsion of its own. Our tugs tow the dredgers between sites, place them on station, run anchors and hold barges alongside while they load, so the spread can be moved and repositioned without waiting on outside towage.',
+      'Rockstar handles the heavier towage and open-water passages; Porunai and Premrath are smaller harbour tugs for positioning and assisting inside the work area.',
+    ],
+    keys: ['Bollard pull', 'Speed', 'Overall length', 'Draft', 'Gross tonnage'],
+    vessels: [
+      {
+        id: 'rockstar',
+        name: 'Rockstar',
+        type: 'Tug',
+        summary: [
+          'Rockstar is the largest tug in the fleet: 24 m overall with 13 t of bollard pull and a 10 knot service speed, used to tow dredgers and barges between sites and along the coast.',
+        ],
+        specs: [
+          ['Overall length', '24 m'],
+          ['Overall width', '8 m'],
+          ['Moulded depth', '3.8 m'],
+          ['Draft', '2.8 m'],
+          ['Speed', '10 knots'],
+          ['Bollard pull', '13 t'],
+          ['Gross tonnage', '172 MT'],
+          ['Net tonnage', '52 MT'],
+        ],
+      },
+      {
+        id: 'porunai',
+        name: 'Porunai',
+        type: 'Tug',
+        summary: [
+          'Porunai is a 19.35 m harbour tug that positions dredgers and barges within the work area and assists with anchor handling.',
+        ],
+        specs: [
+          ['Overall length', '19.35 m'],
+          ['Overall width', '5.62 m'],
+          ['Moulded depth', '3.02 m'],
+          ['Draft', '2.5 m'],
+          ['Speed', '6 knots'],
+          ['Gross tonnage', '89 MT'],
+          ['Net tonnage', '40.05 MT'],
+        ],
+      },
+      {
+        id: 'premrath',
+        name: 'Premrath',
+        type: 'Tug',
+        summary: [
+          'Premrath is a 19.9 m harbour tug drawing 2 m, the shallowest of our tugs, for positioning and assist work in confined and shallow areas.',
+        ],
+        specs: [
+          ['Overall length', '19.9 m'],
+          ['Overall width', '6 m'],
+          ['Moulded depth', '2.9 m'],
+          ['Draft', '2 m'],
+          ['Speed', '6 knots'],
+          ['Gross tonnage', '80 MT'],
+          ['Net tonnage', '24 MT'],
+        ],
+      },
+    ],
+  },
+
+  survey: {
+    headline: 'Hydrographic survey before, during and after dredging',
+    intro: [
+      'Every dredging job is measured from the water. Our survey boat runs the pre-dredge survey that sets the quantities, the progress surveys that guide the dredgers, and the post-dredge survey that confirms the design depth has been reached.',
+      'Having our own survey platform on site means soundings are taken when the work needs them, not when an outside vessel is available.',
+    ],
+    keys: ['Speed', 'Overall length', 'Loaded draft', 'Gross tonnage'],
+    vessels: [
+      {
+        id: 'reef-3',
+        name: 'Reef 3',
+        type: 'Survey boat',
+        summary: [
+          'Reef 3 is a 16.5 m survey boat that carries single and multi beam echo sounding for pre, progress and post dredge surveys. A 1.3 m loaded draft and 10 knot speed let it cover shallow areas and move quickly between survey lines.',
+        ],
+        specs: [
+          ['Overall length', '16.5 m'],
+          ['Overall width', '5 m'],
+          ['Moulded depth', '2.5 m'],
+          ['Loaded draft', '1.3 m'],
+          ['Speed', '10 knots'],
+          ['Gross tonnage', '43.87 MT'],
+          ['Net tonnage', '13.16 MT'],
+        ],
+      },
+    ],
+  },
+
+  workboat: {
+    headline: 'Crew transfer and site support',
+    intro: [
+      'Workboats keep a dredging site running: they ferry crews between shore and the dredgers, carry supervisors around the working area, and bring out stores and small equipment.',
+      'Our three workboats are between 14 m and 20 m long with drafts of 1.5 m or less, so they can come alongside any vessel in the spread and reach shallow landing points.',
+    ],
+    keys: ['Speed', 'Overall length', 'Loaded draft', 'Gross tonnage'],
+    vessels: [
+      {
+        id: 'rock-7',
+        name: 'Rock 7',
+        type: 'Workboat',
+        summary: [
+          'Rock 7 is a 14 m workboat for crew transfer and short runs within the work area.',
+        ],
+        specs: [
+          ['Overall length', '14 m'],
+          ['Overall width', '4 m'],
+          ['Moulded depth', '2 m'],
+          ['Loaded draft', '1.5 m'],
+          ['Speed', '4 knots'],
+          ['Gross tonnage', '19.79 MT'],
+          ['Net tonnage', '5.93 MT'],
+        ],
+      },
+      {
+        id: 'reef-7',
+        name: 'Reef 7',
+        type: 'Workboat',
+        summary: [
+          'Reef 7 is a 14 m workboat with an 8 knot speed, used for crew changes and supervision across larger sites.',
+        ],
+        specs: [
+          ['Overall length', '14 m'],
+          ['Overall width', '4 m'],
+          ['Moulded depth', '2 m'],
+          ['Loaded draft', '1.5 m'],
+          ['Speed', '8 knots'],
+          ['Gross tonnage', '24.34 MT'],
+          ['Net tonnage', '7.3 MT'],
+        ],
+      },
+      {
+        id: 'mahalaxmi',
+        name: 'Mahalaxmi',
+        type: 'Workboat',
+        summary: [
+          'Mahalaxmi is the longest of our workboats and the shallowest, drawing 1.2 m loaded, for crew transfer and landing at shallow shore points.',
+        ],
+        specs: [
+          ['Overall length', '19.79 m'],
+          ['Overall width', '4 m'],
+          ['Moulded depth', '2 m'],
+          ['Loaded draft', '1.2 m'],
+          ['Speed', '8 knots'],
+          ['Gross tonnage', '19.79 MT'],
+          ['Net tonnage', '5.93 MT'],
+        ],
+      },
     ],
   },
 }
 
+/** A class's leading figures for one vessel, in the class's `keys` order. */
+export function keyFigures(classId, vessel, n) {
+  const keys = fleetDetail[classId]?.keys || []
+  const map = Object.fromEntries(vessel.specs)
+  return keys.filter((k) => map[k]).slice(0, n).map((k) => ({ k, v: map[k] }))
+}
+
+
+/**
+ * Long-form content for the individual service pages. Only services listed here
+ * get their own page; the rest fall back to the services index for now.
+ */
 export const serviceDetail = {
   'capital-dredging': {
     heroImg: '/img/Dredging-Services.jpg',

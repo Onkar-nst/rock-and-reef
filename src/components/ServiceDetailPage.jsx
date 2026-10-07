@@ -1,4 +1,4 @@
-import { services, serviceDetail, projects, fleet, company } from '../data/site'
+import { services, serviceDetail, projects, fleet, fleetDetail, company } from '../data/site'
 import { navigate } from '../router'
 import { useCountUp } from '../hooks'
 
@@ -92,10 +92,10 @@ export default function ServiceDetailPage({ id }) {
                         <dt>Class</dt>
                         <dd>{f.tier === 'dredger' ? 'Dredging plant' : 'Support vessel'}</dd>
                       </div>
-                      {f.units && (
+                      {fleetDetail[f.id] && (
                         <div>
                           <dt>Units</dt>
-                          <dd>{f.units.join(', ')}</dd>
+                          <dd>{fleetDetail[f.id].vessels.map((v) => v.name).join(', ')}</dd>
                         </div>
                       )}
                       <div>

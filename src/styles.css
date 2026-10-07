@@ -1597,8 +1597,8 @@ form { display: grid; gap: 20px; align-content: start; }
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
   gap: clamp(24px, 5vw, 72px); align-items: center;
 }
+@media (min-width: 861px) { .fp-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(300px, 520px); } }
 @media (max-width: 860px) { .fp-hero-grid { grid-template-columns: 1fr; } .fp-hero-plate { display: none; } }
-.fp-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(300px, 520px); }
 .fp-hero-meta {
   display: flex; flex-wrap: wrap; gap: 8px 0; margin: 18px 0 0;
   font-family: var(--display); text-transform: uppercase; letter-spacing: .12em;
@@ -1672,27 +1672,7 @@ form { display: grid; gap: 20px; align-content: start; }
   font-size: clamp(24px, 2.4vw, 32px); line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums;
 }
 
-/* Specification tables, grouped, as a card grid. */
-/* Multi-column rather than a grid: the groups differ a lot in row count, so
-   packed columns avoid the ragged bottom edge a grid leaves. */
-.fp-spec-grid { column-count: 3; column-gap: 20px; }
-@media (max-width: 1100px) { .fp-spec-grid { column-count: 2; } }
-@media (max-width: 640px) { .fp-spec-grid { column-count: 1; } }
-.fp-spec {
-  width: 100%; border-collapse: collapse; border: 1px solid var(--line); background: var(--paper); font-size: 14px;
-  break-inside: avoid; margin-bottom: 20px;
-}
-.fp-spec caption {
-  text-align: left; caption-side: top; padding: 12px 16px;
-  background: var(--ink); color: #fff;
-  font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 12.5px; font-weight: 600;
-}
-.fp-spec th, .fp-spec td { padding: 10px 16px; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
-.fp-spec tbody tr:first-child th, .fp-spec tbody tr:first-child td { border-top: 0; }
-.fp-spec th { font-weight: 400; color: var(--steel); width: 58%; }
-.fp-spec td { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
-
-.fp-features { column-span: all; border: 1px solid var(--line); background: var(--sand); padding: 22px 24px 24px; }
+.fp-features { border: 1px solid var(--line); background: var(--sand); padding: 22px 24px 24px; }
 .fp-features h3 { margin: 0 0 14px; font-size: 17px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); }
 .fp-features ul {
   list-style: none; margin: 0; padding: 0;
@@ -1727,6 +1707,69 @@ form { display: grid; gap: 20px; align-content: start; }
 .fp-output-table tbody td { color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fp-output-table tbody tr:hover { background: rgba(255,255,255,.04); }
 .fp-output-note { margin: 18px 0 0; font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.5); max-width: 90ch; }
+
+/* --- Vessel cards: the class page's list, and "other vessels" on a vessel page --- */
+.fv-list-head { margin-bottom: clamp(24px, 3vw, 36px); }
+.fv-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: clamp(16px, 2vw, 26px);
+}
+.fv-card {
+  display: flex; flex-direction: column; height: 100%; background: var(--paper); border: 1px solid var(--line);
+  border-radius: 14px; overflow: hidden; box-shadow: 0 12px 30px -22px rgba(7,23,35,.35);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.fv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(var(--accent-rgb), .55); }
+.fv-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.fv-card:hover .fl-plate img { transform: translateY(-4px) scale(1.04); }
+.fv-photo { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
+.fv-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.fv-card:hover .fv-photo img { transform: scale(1.04); }
+.fv-body { display: flex; flex-direction: column; flex: 1; padding: 20px 20px 22px; }
+.fv-type {
+  margin: 0 0 6px; font-family: var(--display); text-transform: uppercase; letter-spacing: .12em;
+  font-size: 12px; font-weight: 600; color: var(--accent-dk);
+}
+.fv-body h3 { font-size: clamp(22px, 2vw, 28px); text-transform: uppercase; color: var(--ink); margin: 0; line-height: 1.05; }
+.fv-figs { margin: 16px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.fv-figs > div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.fv-figs dt { font-size: 13px; color: var(--steel); }
+.fv-figs dd { margin: 0; font-size: 13.5px; font-weight: 600; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.fv-more {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 18px;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 13.5px; font-weight: 600; color: var(--ink);
+  transition: color .2s, gap .2s;
+}
+.fv-card:hover .fv-more { color: var(--accent-dk); gap: 14px; }
+
+/* --- Vessel page: overview beside the particulars sheet --- */
+.fv-detail { padding-block: clamp(44px, 6vw, 88px); }
+.fv-detail-grid {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(28px, 5vw, 72px); align-items: start;
+}
+@media (max-width: 900px) { .fv-detail-grid { grid-template-columns: 1fr; } }
+.fv-overview h2 { font-size: clamp(26px, 3.2vw, 40px); text-transform: uppercase; color: var(--ink); line-height: 1.05; margin: 0 0 18px; }
+.fv-overview p { margin: 0; font-size: clamp(15.5px, 1.4vw, 17px); line-height: 1.75; color: var(--steel); }
+.fv-overview p + p { margin-top: 16px; }
+.fv-overview .fp-headline { margin-top: clamp(24px, 3vw, 36px); }
+
+.fv-particulars { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.fv-specs { width: 100%; border-collapse: collapse; border: 1px solid var(--line); background: var(--paper); font-size: 14.5px; }
+.fv-specs caption {
+  text-align: left; caption-side: top; padding: 14px 18px;
+  background: var(--ink); color: #fff;
+  font-family: var(--display); text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600;
+}
+.fv-specs th, .fv-specs td { padding: 12px 18px; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
+.fv-specs tbody tr:first-child th, .fv-specs tbody tr:first-child td { border-top: 0; }
+.fv-specs tbody tr:nth-child(even) { background: var(--mist); }
+.fv-specs th { font-weight: 400; color: var(--steel); width: 52%; }
+.fv-specs td { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.fv-extra { margin-top: clamp(36px, 5vw, 64px); }
+
+.fv-others { padding-block: clamp(44px, 6vw, 88px); border-top: 1px solid var(--line); background: var(--mist); }
 
 /* Projects this class has worked. */
 .fp-projects { padding-block: clamp(44px, 6vw, 88px); background: var(--sand); border-top: 1px solid var(--line); }

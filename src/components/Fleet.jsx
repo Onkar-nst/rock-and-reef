@@ -31,7 +31,7 @@ export default function Fleet({ onOpenService }) {
           {vessels.map((f) => {
             const used = deployments(f)
             const page = fleetDetail[f.id] ? `/fleet/${f.id}` : null
-            const count = f.units ? f.units.length : fleetDetail[f.id]?.vessels?.length || 1
+            const count = fleetDetail[f.id]?.vessels.length || 1
             return (
               <li className="fl-card" key={f.id}>
                 <div className="fl-plate">
@@ -57,7 +57,7 @@ export default function Fleet({ onOpenService }) {
                   </div>
                   {page ? (
                     <a className="btn btn-primary fl-cta" href={page} onClick={(e) => go(e, page)}>
-                      View this class <Arrow />
+                      View {count === 1 ? 'vessel' : `${count} vessels`} <Arrow />
                     </a>
                   ) : (
                     <a className="btn btn-primary fl-cta" href="#contact" onClick={(e) => { e.preventDefault(); scrollToId('contact') }}>

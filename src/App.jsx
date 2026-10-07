@@ -79,12 +79,12 @@ export default function App() {
     )
   }
 
-  const fleetMatch = route.match(/^\/fleet\/([a-z0-9-]+)$/)
+  const fleetMatch = route.match(/^\/fleet\/([a-z0-9-]+)(?:\/([a-z0-9-]+))?$/)
   if (fleetMatch) {
     return (
       <>
         <Header active="fleet" solid />
-        <FleetPage id={fleetMatch[1]} />
+        <FleetPage key={route} id={fleetMatch[1]} vesselId={fleetMatch[2]} />
         <Footer />
         <WhatsApp />
       </>
