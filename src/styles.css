@@ -1587,6 +1587,30 @@ form { display: grid; gap: 20px; align-content: start; }
 .rn-cta p { margin: 20px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.7; color: var(--steel); }
 .rn-cta-links { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 28px; }
 
+/* --- Service pages built from the shared outline --- */
+.rn-unit-link { color: var(--ink); border-bottom: 1px dotted var(--accent-dk); }
+.rn-unit-link:hover { color: var(--accent-dk); }
+.rn-method-when { background: var(--ink); color: #fff; border-top-color: var(--accent); }
+.rn-method-when h3 { color: #fff; }
+.rn-method-when .rn-method-answer { margin-top: 0; border-top-color: var(--line-dk); }
+.rn-method-when li { color: rgba(255,255,255,.78); }
+
+.rn-exp { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
+@media (max-width: 860px) { .rn-exp { grid-template-columns: 1fr; } }
+.rn-exp .rn-h2 { margin-bottom: 14px; }
+.rn-exp-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.rn-exp-list li > span, .rn-exp-list li > a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
+  padding: 18px 4px; border-bottom: 1px solid var(--line);
+  font-size: clamp(15.5px, 1.4vw, 17px); line-height: 1.6; color: var(--ink);
+}
+.rn-exp-list li > a { transition: padding-left .2s, background .2s; }
+.rn-exp-list li > a:hover { padding-left: 14px; background: rgba(var(--accent-rgb), .08); }
+.rn-exp-go {
+  flex: none; font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 12.5px; font-weight: 600; color: var(--accent-dk);
+}
+.rn-exp-go::after { content: ' →'; }
+
 /* ---------- Fleet class page (/fleet/:id) ---------- */
 /* Reads like a vessel register: a stated hero, an introduction to the class,
    then one data sheet per vessel — photo, headline figures, spec tables,

@@ -2,6 +2,16 @@ import { services, serviceDetail, projects, fleet, fleetDetail, company } from '
 import { navigate } from '../router'
 import { useCountUp } from '../hooks'
 
+// Vessel name → its page on the fleet register, for linking equipment units.
+const vesselPath = Object.fromEntries(
+  Object.entries(fleetDetail).flatMap(([cls, d]) => d.vessels.map((v) => [v.name, `/fleet/${cls}/${v.id}`])),
+)
+
+const go = (path) => (e) => {
+  e.preventDefault()
+  navigate(path)
+}
+
 /**
  * A single service, laid out the way the reference site lays out a fleet class:
  * a text-only hero with a scroll prompt, an intro block, spec cards for the
@@ -26,7 +36,7 @@ export default function ServiceDetailPage({ id }) {
     <main className="page rn">
       {/* Hero: title only, with the scroll prompt. */}
       <section className="rn-hero">
-        <img src={detail.heroImg} alt="" className="rn-hero-img" />
+        <img src={detail.heroImg || service.img} alt="" className="rn-hero-img" />
         <div className="wrap rn-hero-inner">
           <p className="crumb">
             <a href="/" onClick={(e) => { e.preventDefault(); navigate('/') }}>Home</a>
@@ -54,6 +64,7 @@ export default function ServiceDetailPage({ id }) {
       </section>
 
       {/* Key facts as counter boxes; numeric ones count up on scroll. */}
+      {detail.facts && (
       <section className="rn-facts">
         <div className="wrap">
           <ul className="rn-counters" aria-label="Key figures">
@@ -63,9 +74,22 @@ export default function ServiceDetailPage({ id }) {
           </ul>
         </div>
       </section>
+      )}
 
       {/* Vessels: one spec card each, the reference's fleet-card pattern. */}
-      {vessels.length > 0 && (
+      {detail.equipment ? (
+        <section className="rn-section">
+          <div className="wrap">
+            <div className="rn-method-head">
+              <h2 className="rn-h2">{detail.equipmentTitle || `Fleet for ${service.name.toLowerCase()}`}</h2>
+              <p className="rn-closing">{detail.equipmentNote}</p>
+            </div>
+            <div className="rn-cards">
+              {detail.equipment.map((e) => <EquipmentCard key={e.type} e={e} />)}
+            </div>
+          </div>
+        </section>
+      ) : vessels.length > 0 && (
         <section className="rn-section">
           <div className="wrap">
             <h2 className="rn-h2">Fleet for {service.name.toLowerCase()}</h2>
@@ -113,6 +137,7 @@ export default function ServiceDetailPage({ id }) {
       )}
 
       {/* Method: the challenges, as a compact 2x2 grid of cards. */}
+      {detail.challenges && (
       <section className="rn-section rn-method">
         <div className="wrap">
           <div className="rn-method-head">
@@ -140,6 +165,69 @@ export default function ServiceDetailPage({ id }) {
           </div>
         </div>
       </section>
+      )}
+
+      {/* Method: when the service is needed, then the five delivery steps, in
+          the same cards as the challenges above, three to a row. */}
+      {detail.steps && (
+        <section className="rn-section rn-method">
+          <div className="wrap">
+            <div className="rn-method-head">
+              <h2 className="rn-h2">How we deliver</h2>
+              <p className="rn-closing">
+                From the first survey to the verified handover, every job follows the same five steps.
+              </p>
+            </div>
+            <div className="rn-method-grid n3">
+              <article className="rn-method-card rn-method-when">
+                <div className="rn-method-card-top">
+                  <h3>{detail.neededTitle}</h3>
+                </div>
+                <div className="rn-method-answer">
+                  <ul>
+                    {detail.needed.map((n) => <li key={n}>{n}</li>)}
+                  </ul>
+                </div>
+              </article>
+              {detail.steps.map((st, i) => (
+                <article className="rn-method-card" key={st.t}>
+                  <div className="rn-method-card-top">
+                    <span className="rn-n">{String(i + 1).padStart(2, '0')}</span>
+                    <h3>{st.t}</h3>
+                  </div>
+                  <p className="rn-method-problem">{st.d}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Experience the copy names that has no project page of its own yet. */}
+      {detail.experience?.length > 0 && (
+        <section className="rn-section">
+          <div className="wrap rn-exp">
+            <div>
+              <h2 className="rn-h2">Related experience</h2>
+              {detail.experienceNote && <p className="rn-closing">{detail.experienceNote}</p>}
+            </div>
+            <ul className="rn-exp-list">
+              {detail.experience.map((x) => (
+                <li key={x.text}>
+                  {x.project ? (
+                    <a href={`/projects/${x.project}`} onClick={go(`/projects/${x.project}`)}>
+                      <span>{x.text}</span>
+                      <span className="rn-exp-go">View project</span>
+                    </a>
+                  ) : (
+                    <span>{x.text}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Projects: the same tall tiles with the spec-sheet hover as the home page. */}
       {related.length > 0 && (
@@ -204,6 +292,63 @@ export default function ServiceDetailPage({ id }) {
         </div>
       </section>
     </main>
+  )
+}
+
+/**
+ * Capital dredging's fleet card, fed from a service's equipment row: the class
+ * silhouette, its role, the units (linked to their vessel pages) and what the
+ * service uses them for.
+ */
+function EquipmentCard({ e }) {
+  const cls = e.cls && fleet[e.cls]
+  const classPath = cls && fleetDetail[cls.id] ? `/fleet/${cls.id}` : null
+  return (
+    <article className="rn-card">
+      <div className="rn-card-top">
+        <h3>{e.type}</h3>
+        {classPath && (
+          <a className="rn-link sm" href={classPath} onClick={go(classPath)}>
+            View the class
+          </a>
+        )}
+      </div>
+      {cls && (
+        <div className="rn-card-shape">
+          <img src={cls.img} alt={cls.name} loading="lazy" decoding="async" />
+        </div>
+      )}
+      <dl className="rn-card-spec">
+        {cls && (
+          <div>
+            <dt>Role</dt>
+            <dd>{cls.role}</dd>
+          </div>
+        )}
+        <div>
+          <dt>Class</dt>
+          <dd>{cls ? (cls.tier === 'dredger' ? 'Dredging plant' : 'Support vessel') : 'Dredging plant'}</dd>
+        </div>
+        <div>
+          <dt>Units</dt>
+          <dd>
+            {Array.isArray(e.units)
+              ? e.units.map((u, i) => (
+                  <span key={u}>
+                    {i > 0 && ', '}
+                    {vesselPath[u] ? (
+                      <a className="rn-unit-link" href={vesselPath[u]} onClick={go(vesselPath[u])}>{u}</a>
+                    ) : (
+                      u
+                    )}
+                  </span>
+                ))
+              : e.units}
+          </dd>
+        </div>
+      </dl>
+      <p className="rn-card-text">{e.use}</p>
+    </article>
   )
 }
 

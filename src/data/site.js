@@ -271,7 +271,7 @@ export const projects = [
       'Reservoir desilting with sediment pumped into geotextile tubes, a first of its kind in India.',
     summary:
       'Reservoir dredging and sustainable sediment management: accumulated silt was extracted and pumped into geotextile tubes for embankment strengthening and controlled desilting, a pioneering pilot for inland dredging in India.',
-    services: ['reservoir-dredging'],
+    services: ['deep-dredging'],
     vessels: ['csd', 'survey'],
     coords: { lat: 30.5, lng: 77.85 },
   },
@@ -347,17 +347,17 @@ export const services = [
     id: 'deep-dredging',
     name: 'Deep Dredging',
     img: '/img/deep-dredging-service.png',
-    blurb: 'Dredging for deeper waters and challenging geological conditions.',
+    blurb: 'Restoring storage capacity and structural safety in dams and reservoirs.',
     detail:
-      'Rock and Reef delivers specialist deep dredging where design depths exceed what conventional plant can reach, using long reach backhoe and cutter suction dredgers to achieve and hold the required profile in hard and compacted strata.',
+      'Silt, sediment and debris build up on the beds of dams and reservoirs, cutting storage capacity and straining structures. We remove it with equipment and techniques suited to deep-water, high-pressure conditions.',
   },
   {
-    id: 'reservoir-dredging',
-    name: 'Reservoir Dredging',
+    id: 'inland-dredging',
+    name: 'Inland Dredging',
     img: '/img/dakpathar-barrage-rock-and-reef-project.jpg',
-    blurb: 'Restoring storage capacity in reservoirs and other inland water bodies.',
+    blurb: 'Dredging for rivers, lakes and industrial water bodies, delivered with our own fleet.',
     detail:
-      'Reservoir and dam environments lose capacity to sediment build up, siltation and debris. We restore storage with inland dredging spreads and sustainable sediment placement, including geotextile tube dewatering, as pioneered at Dakpathar Barrage.',
+      'Rivers lose depth, lakes and ponds lose volume, and industrial cooling ponds lose capacity. We dredge rivers, lakes, dams and industrial water bodies with our own cutter suction dredgers and survey boats.',
   },
   {
     id: 'trenching',
@@ -1072,5 +1072,341 @@ export const serviceDetail = {
     ],
     closing:
       'Successful capital dredging needs expertise, planning and the flexibility to change method mid job. That is what we bring, along with a fleet that was built for it.',
+  },
+
+  // The pages below share one shape: overview, when the service is needed,
+  // how we deliver it (five steps), the equipment table and related experience.
+  // Equipment `units` that match a vessel name on the fleet register link to
+  // that vessel's page; anything else is shown as plain text.
+  'maintenance-dredging': {
+    heroImg: '/img/dreging.jpg',
+    headline: 'Keep channels, berths and basins at their design depth',
+    intro:
+      'Silt, sand and sediment settle in every navigable channel, berth pocket and harbour basin. Left alone, they reduce available draft, restrict the size of vessels that can call, and slow down cargo operations. Maintenance dredging removes this accumulated material on a recurring basis so that the waterway keeps the depth it was designed for.',
+    overview: [
+      'Rock and Reef Dredging has delivered dredging work along the Indian coastline since 2006. Maintenance dredging is one of our core services, carried out with our grab dredgers, supported by tugs, self-propelled hopper barges and in-house survey boats, with minimal disruption to port and terminal operations.',
+    ],
+    facts: [
+      { k: 'Since 2006', v: 'Dredging along the Indian coastline' },
+      { k: '5', v: 'Grab dredgers for berths and confined pockets' },
+      { k: 'Live port', v: 'Sequenced around active berths and moving vessels' },
+      { k: 'Verified', v: 'Achieved depths confirmed by post-dredge survey' },
+    ],
+    neededTitle: 'When maintenance dredging is needed',
+    needed: [
+      'Ports and terminals where siltation is reducing berth depth or navigable draft.',
+      'Approach channels and turning circles that need to be restored to their design levels.',
+      'Jetties, intake and outfall structures for refineries, power plants and industrial facilities.',
+      'Inland waterways, rivers, lakes and reservoirs where sediment is building up.',
+      'Areas affected by heavy monsoon siltation, where repeat campaigns are needed.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Our survey team maps the current seabed with bathymetric surveys, so scope and quantities are agreed on measured data, not estimates.' },
+      { t: 'Plan the method and equipment', d: 'We match the dredger to the material and the site: grab dredgers with the right bucket attachment, and a cutter suction dredger where reclamation is required.' },
+      { t: 'Dredge around live operations', d: 'Maintenance work often happens beside active berths and moving vessels. We schedule and sequence work to keep the waterway working.' },
+      { t: 'Handle and dispose of material', d: 'Dredged material is moved by barge to the agreed disposal or reclamation area, in line with the project’s approvals.' },
+      { t: 'Survey after, and hand over', d: 'A post-dredge survey confirms the achieved depths, giving the client a verified record of the work.' },
+    ],
+    equipmentNote: 'Maintenance campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Cutter suction dredgers', cls: 'csd', units: ['Brahmaputra', 'Rock 21'], use: 'High-output removal of accumulated sediment from channels and basins, especially where reclamation is required' },
+      { type: 'Grab dredgers', cls: 'grab', units: ['Rock 6', 'Rock 3', 'Rock 15', 'Rock 18', 'Kartar'], use: 'Confined areas, deep pockets and berth pockets' },
+      { type: 'Barges', cls: 'barge', units: ['Rock 5', 'Rock 9', 'Rock 1', 'Rock 10', 'Rock 12', 'Reef 1'], use: 'Hauling dredged material to disposal areas' },
+      { type: 'Tugs', cls: 'tug', units: ['Rockstar', 'Porunai', 'Premrath'], use: 'Positioning and support (if required)' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Pre- and post-dredge bathymetric surveys to verify depths' },
+    ],
+    experience: [],
+  },
+
+  'deep-dredging': {
+    heroImg: '/img/deep-dredging-service.png',
+    headline: 'Restore storage capacity and structural safety in dams and reservoirs',
+    intro:
+      'Over time, silt, sediment and debris accumulate on the beds of dams and reservoirs. This reduces storage capacity, puts strain on structures, and affects flood control, irrigation and hydropower output.',
+    overview: [
+      'Rock and Reef Dredging specialises in deep dredging tailored to the demands of dam infrastructure. Our team removes accumulated material from dam beds and reservoirs using advanced equipment, capable of dredging up to 200 metres, and techniques suited to deep-water and high-pressure environments.',
+    ],
+    facts: [
+      { k: '200 m', v: 'Depth our deep dredging equipment can reach' },
+      { k: '20 m+', v: 'Pockets handled by submersible pump dredgers, in production' },
+      { k: 'Measured', v: 'Production meters log the quantity dredged' },
+      { k: 'Dams', v: 'Desilting at Baglihar and Salal Dam' },
+    ],
+    neededTitle: 'When deep dredging is needed',
+    needed: [
+      'Dams and reservoirs that have lost storage capacity to silt.',
+      'Hydropower projects where sediment is affecting intake and turbine efficiency.',
+      'Irrigation and flood-control reservoirs that need their capacity restored.',
+      'Structures near the dam face or gates where accumulated sediment is a risk.',
+      'Deep basins and channels where standard dredging depths are not enough.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Bathymetric surveys map the reservoir or basin bed, so the volume of silt and the work plan are based on measured data. Where siltation is high, production meters also measure the quantity dredged.' },
+      { t: 'Plan the method and equipment', d: 'We select dredgers and pumping arrangements to suit the depth, material and distance to the disposal area.' },
+      { t: 'Dredge at depth', d: 'Work is carried out with equipment designed for deep-water, high-pressure conditions, scheduled around the dam’s operations.' },
+      { t: 'Handle and dispose of material', d: 'Dredged silt is moved to the agreed disposal area, in line with project approvals.' },
+      { t: 'Survey after, and hand over', d: 'A post-dredge survey confirms the capacity restored, giving the client a verified record of the work.' },
+    ],
+    equipmentNote: 'Campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Cutter suction dredgers', cls: 'csd', units: ['Brahmaputra', 'Rock 21'], use: 'Removal of large volumes of silt and sediment from reservoir beds' },
+      { type: 'Grab dredgers', cls: 'grab', units: ['Rock 6', 'Rock 3', 'Rock 15', 'Rock 18', 'Kartar'], use: 'Deep pockets with submerged debris and areas close to structures' },
+      { type: 'Submersible pump dredgers', units: 'In production', use: 'Deep pockets where dredging depths exceed 20 metres' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Pre- and post-dredge bathymetric surveys to verify depths' },
+    ],
+    experience: [
+      { text: 'Dam desilting projects at Baglihar and Salal Dam (June 2026).' },
+      { text: 'Desilting and erosion protection project at Dakpathar (August 2020).', project: 'dakpathar' },
+    ],
+  },
+
+  'inland-dredging': {
+    heroImg: '/img/dakpathar-barrage-rock-and-reef-project.jpg',
+    headline: 'Dredging for rivers, lakes and industrial water bodies',
+    intro:
+      'Inland waterways and water bodies silt up just as ports do. Rivers lose depth, lakes and ponds lose volume, and industrial cooling ponds lose capacity.',
+    overview: [
+      'Beyond coastal work, Rock and Reef Dredging carries out inland dredging for rivers, lakes, dams and industrial water bodies, delivered with our own dredgers and survey boats.',
+    ],
+    facts: [
+      { k: '2', v: 'Cutter suction dredgers for rivers, lakes and ponds' },
+      { k: 'Bokaro', v: 'Cooling pond dredging for Bokaro Steel' },
+      { k: 'Pipeline', v: 'Material pumped to disposal or reclamation' },
+      { k: 'Own fleet', v: 'Our own dredgers and survey boats' },
+    ],
+    neededTitle: 'When inland dredging is needed',
+    needed: [
+      'Rivers and canals where siltation is restricting depth or flow.',
+      'Lakes and ponds that have lost volume to sediment.',
+      'Industrial cooling ponds and intake basins at steel plants, power plants and refineries.',
+      'Erosion protection works along riverbanks.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Bathymetric surveys map the current bed levels, so scope and quantities are agreed on measured data.' },
+      { t: 'Plan the method and equipment', d: 'We choose the dredger to suit the water body, the material and how the dredged material will be handled.' },
+      { t: 'Mobilise and dredge', d: 'Our equipment is brought to site and dredging is carried out in line with the client’s operating requirements.' },
+      { t: 'Handle and dispose of material', d: 'Dredged material is moved by pipeline to the agreed disposal or reclamation area.' },
+      { t: 'Survey after, and hand over', d: 'A post-dredge survey confirms the achieved depths and volumes.' },
+    ],
+    equipmentNote: 'Campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Cutter suction dredgers', cls: 'csd', units: ['Brahmaputra', 'Rock 21'], use: 'High-output dredging of rivers, lakes and ponds, and where reclamation is required' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Pre- and post-dredge bathymetric surveys to verify depths' },
+    ],
+    experience: [
+      { text: 'Cooling pond dredging for Bokaro Steel (order secured January 2026), our first major inland project.' },
+    ],
+  },
+
+  trenching: {
+    heroImg: '/img/Trenching-Works.jpg',
+    headline: 'Precise seabed excavation and backfilling for pipelines and subsea cables',
+    intro:
+      'Pipelines and subsea cables need to be laid in a trench of the right width and depth, then protected by backfill. Getting the trench right is critical to the safety and life of the asset.',
+    overview: [
+      'Rock and Reef Dredging has completed trenching and backfilling projects in Indian waters, including work as a subcontractor for global EPC leaders. Our equipment is designed for precise seabed excavation, and we are eager to expand further in this area.',
+    ],
+    facts: [
+      { k: '4,068 RM', v: 'Trenched and backfilled for JD-5, Mumbai Harbour' },
+      { k: '50 m', v: 'Widest trench cut on the JD-5 project' },
+      { k: '6 m', v: 'Below Chart Datum, deepest trench on JD-5' },
+      { k: 'Rock', v: 'Hard strata cut or blasted where needed' },
+    ],
+    neededTitle: 'When trenching is needed',
+    needed: [
+      'Offshore and nearshore pipeline projects.',
+      'Subsea cable-laying for power and communications.',
+      'Intake and outfall pipelines for industrial, desalination and power facilities.',
+      'Pipeline crossings through harbours and navigable channels.',
+      'Projects where the seabed includes rock or hard strata that need to be cut or blasted.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Bathymetric and geophysical surveys define the route, the seabed conditions and the trench profile.' },
+      { t: 'Plan the method and equipment', d: 'We match the excavator or dredger to trench width, depth and seabed material, and plan rock blasting where needed.' },
+      { t: 'Excavate to the design profile', d: 'The trench is cut to the specified width and depth, with position checked against the design alignment.' },
+      { t: 'Support laying and backfill', d: 'Once the pipeline or cable is placed, the trench is backfilled and protected as specified.' },
+      { t: 'Survey after, and hand over', d: 'A post-trenching survey records the as-built trench for the client.' },
+    ],
+    equipmentNote: 'Campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Backhoe dredgers', cls: 'backhoe', units: ['Octopus', 'Bheem', 'Rock King'], use: 'Precise trench excavation, including in hard material' },
+      { type: 'Grab dredgers', cls: 'grab', units: ['Rock 6', 'Rock 3', 'Rock 15', 'Rock 18', 'Kartar'], use: 'Trenching in deeper or confined sections' },
+      { type: 'Barges', cls: 'barge', units: ['Rock 5', 'Rock 9', 'Rock 1', 'Rock 10', 'Rock 12', 'Reef 1'], use: 'Carrying excavated material and backfill' },
+      { type: 'Tugs', cls: 'tug', units: ['Rockstar', 'Porunai', 'Premrath'], use: 'Positioning and support (if required)' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Route surveys and as-built verification' },
+    ],
+    experience: [
+      { text: 'Fifth Oil Berth (JD-5) Project, Mumbai Harbour (2019): 4,068 RM of trenching and backfilling, trench widths of 5 to 50 m, depths up to 6 m below Chart Datum, subcontracted by Sapura.', project: 'jd5' },
+    ],
+  },
+
+  survey: {
+    heroImg: '/img/Hydrographic-and-Bathymetric-Survey.jpg',
+    headline: 'Accurate seabed and water body surveys, before, during and after every project',
+    intro:
+      'Every dredging, trenching or marine construction project starts and ends with a survey, with regular periodic surveys in between to track progress. Accurate depth and seabed data decide how much material has to be moved, and prove that the work has been done to specification.',
+    overview: [
+      'Rock and Reef Dredging offers comprehensive marine survey services, including bathymetric, geophysical, environmental and hydrographic surveys, carried out with our own survey boats.',
+    ],
+    facts: [
+      { k: 'In-house', v: 'Survey boats and crews from our own fleet' },
+      { k: 'Before', v: 'Existing depths measured to set quantities' },
+      { k: 'After', v: 'Achieved depths verified at handover' },
+      { k: 'Your datum', v: 'Data delivered in the client’s datum and format' },
+    ],
+    neededTitle: 'When a survey is needed',
+    needed: [
+      'Before dredging, to measure existing depths and calculate quantities.',
+      'After dredging, to verify the depths achieved.',
+      'Before pipeline, cable or trenching works, to select and define the route.',
+      'For ports and terminals that need regular depth checks.',
+      'For environmental baseline and compliance studies.',
+    ],
+    steps: [
+      { t: 'Plan the survey', d: 'We define the survey area, line spacing and accuracy required with the client.' },
+      { t: 'Mobilise the survey boat', d: 'Our survey boats are deployed to site with the required equipment and crew.' },
+      { t: 'Collect the data', d: 'Bathymetric, geophysical or environmental data is gathered across the survey area.' },
+      { t: 'Process and check', d: 'Data is processed, checked and converted to the client’s datum and format.' },
+      { t: 'Deliver the results', d: 'The client receives survey plans, depth charts and a report of findings.' },
+    ],
+    equipmentNote: 'Survey campaigns draw on the following units from our fleet.',
+    equipment: [
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Bathymetric, geophysical, environmental and hydrographic surveys' },
+      { type: 'Motor launches', cls: 'workboat', units: ['Reef 3', 'Reef 7'], use: 'Crew transfer and survey support (if required)' },
+    ],
+    experience: [
+      { text: 'Pre, periodic and post-dredge surveys across our capital dredging, maintenance dredging and desilting projects.' },
+    ],
+  },
+
+  breakwater: {
+    heroImg: '/img/Breakwater-Construction-Services-iPAC-Automation-1-1.jpg',
+    headline: 'Durable coastal protection built with our own marine fleet',
+    intro:
+      'Breakwaters protect harbours, terminals, shorelines and coastal infrastructure from waves and erosion. Building them means placing large quantities of rock and armour units accurately, often in exposed water.',
+    overview: [
+      'Breakwater construction is an area we are actively expanding into. While we have not yet executed a breakwater project, we have the equipment and the marine experience to do so. Rock and Reef Dredging operates grab and backhoe dredgers, barges and flat pontoons, which are well suited to breakwater work, along with the dredging, rock blasting and reclamation experience that breakwaters depend on.',
+      'We are confident in delivering durable and effective coastal protection on time, to high standards of quality and safety.',
+    ],
+    facts: [
+      { k: 'Rock', v: 'Blasting experience from New Mangalore Port' },
+      { k: 'Own fleet', v: 'Grab and backhoe dredgers, barges and flat pontoons' },
+      { k: 'Profile', v: 'Checked against the design as we build' },
+      { k: 'Verified', v: 'Final survey records the completed breakwater' },
+    ],
+    neededTitle: 'When breakwater construction is needed',
+    needed: [
+      'New ports, harbours and fishing harbours that need sheltered water.',
+      'Terminals and jetties exposed to wave action.',
+      'Shorelines affected by erosion.',
+      'Intake and outfall structures for coastal industrial plants.',
+      'Reclamation areas that need protection.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Bathymetric surveys of the alignment confirm seabed levels and conditions.' },
+      { t: 'Prepare the seabed', d: 'Dredging and rock blasting, where needed, prepare the foundation for the breakwater.' },
+      { t: 'Place the core and armour', d: 'Rock and armour material is transported by barge and placed to the design profile using our dredgers.' },
+      { t: 'Check as we build', d: 'Profiles are checked against the design during construction.' },
+      { t: 'Survey after, and hand over', d: 'A final survey records the completed breakwater for the client.' },
+    ],
+    equipmentNote: 'Campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Backhoe dredgers', cls: 'backhoe', units: ['Octopus', 'Bheem', 'Rock King'], use: 'Placement of rock and armour material' },
+      { type: 'Grab dredgers', cls: 'grab', units: ['Rock 6', 'Rock 3', 'Rock 15', 'Rock 18', 'Kartar'], use: 'Seabed preparation and material handling' },
+      { type: 'Barges and flat pontoons', cls: 'barge', units: ['Rock 5', 'Rock 9', 'Rock 1', 'Rock 10', 'Rock 12', 'Reef 1'], use: 'Transporting and placing rock and armour material' },
+      { type: 'Tugs', cls: 'tug', units: ['Rockstar', 'Porunai', 'Premrath'], use: 'Positioning and support (if required)' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Alignment, profile and as-built surveys' },
+    ],
+    experienceNote: 'Our experience in the marine works that breakwater construction depends on:',
+    experience: [
+      { text: 'Rock blasting for the capital dredging project at New Mangalore Port (November 2016).' },
+      { text: 'Capital dredging and reclamation projects, including our first reclamation contract using cutter suction dredgers (November 2022).' },
+      { text: 'Trenching and backfilling at Mumbai Harbour (2019), working from barges in active port waters.', project: 'jd5' },
+    ],
+  },
+
+  'intake-outfall': {
+    heroImg: '/img/intake-outfall-channel-dredging-services-india.webp',
+    headline: 'Keep seawater intakes and discharge channels clear',
+    intro:
+      'Coastal industries depend on a steady supply of water and a clear channel to discharge it. Power plants, refineries and steel plants use seawater for cooling. Desalination plants draw in large volumes of seawater and return concentrated brine through an outfall. When these intake and outfall channels silt up, flow drops, plant performance can suffer, and the dispersal of discharge water can be affected.',
+    overview: [
+      'Rock and Reef Dredging dredges intake and outfall channels, basins and pump-house approaches for industrial clients, including desalination plants. We work around live plant operations so that water supply and discharge are not interrupted, keeping power plants, refineries, steel plants and desalination plants running.',
+    ],
+    facts: [
+      { k: 'Live plant', v: 'Water supply and discharge kept running' },
+      { k: '5', v: 'Grab dredgers for work close to intake structures' },
+      { k: 'Monsoon', v: 'Repeat campaigns where siltation returns' },
+      { k: 'Verified', v: 'Achieved depths confirmed by post-dredge survey' },
+    ],
+    neededTitle: 'When intake and outfall dredging is needed',
+    needed: [
+      'Seawater intake channels and pump-house approaches at desalination plants that have silted up.',
+      'Brine outfall channels at desalination plants that need to be restored to design depth.',
+      'Cooling water intake channels and pump-house approaches at power plants, refineries and steel plants.',
+      'Outfall channels and discharge basins that need to be restored to design depth.',
+      'New intake and outfall channels being constructed for plant expansions.',
+      'Areas affected by heavy monsoon siltation, where repeat campaigns are needed.',
+    ],
+    steps: [
+      { t: 'Survey before we start', d: 'Bathymetric surveys map the channel and basin, so scope and quantities are agreed on measured data.' },
+      { t: 'Plan the method and equipment', d: 'We select the dredger to suit the channel width, depth and how close the work is to intake structures.' },
+      { t: 'Dredge around live operations', d: 'Work is scheduled and sequenced to keep the plant’s water supply and discharge running.' },
+      { t: 'Handle and dispose of material', d: 'Dredged material is moved by barge to the agreed disposal or reclamation area.' },
+      { t: 'Survey after, and hand over', d: 'A post-dredge survey confirms the achieved depths, giving the client a verified record of the work.' },
+    ],
+    equipmentNote: 'Campaigns draw on the following units from our fleet, depending on site conditions.',
+    equipment: [
+      { type: 'Grab dredgers', cls: 'grab', units: ['Rock 6', 'Rock 3', 'Rock 15', 'Rock 18', 'Kartar'], use: 'Confined areas close to intake and pump-house structures' },
+      { type: 'Backhoe dredgers', cls: 'backhoe', units: ['Octopus', 'Bheem', 'Rock King'], use: 'Precise removal of silt and hard-packed material' },
+      { type: 'Cutter suction dredgers', cls: 'csd', units: ['Brahmaputra', 'Rock 21'], use: 'High-output dredging of larger channels and basins, when reclamation is required' },
+      { type: 'Barges', cls: 'barge', units: ['Rock 5', 'Rock 9', 'Rock 1', 'Rock 10', 'Rock 12', 'Reef 1'], use: 'Hauling dredged material to disposal areas' },
+      { type: 'Survey boats', cls: 'survey', units: ['Sabir', 'Rock 7', 'Mahalaxmi'], use: 'Pre- and post-dredge bathymetric surveys to verify depths' },
+    ],
+    experience: [],
+  },
+
+  shipbuilding: {
+    heroImg: '/img/Shipbuilding.jpg',
+    headline: 'Specialised marine vessels built and repaired at our own shipyard',
+    intro:
+      'Dredging and marine projects depend on purpose-built vessels. Rock and Reef Dredging runs its own shipyard, which can build specialised vessels up to 100 metres in length, led by a director with 30 years of experience managing the construction of marine vessels and dredging equipment.',
+    overview: [
+      'We began using our shipyard for external orders in 2014, and built our first tug in 2017. Today we design and build a diverse range of specialised vessels, tailored to the unique requirements of maritime projects.',
+    ],
+    facts: [
+      { k: '100 m', v: 'Length of vessel our shipyard can build' },
+      { k: '30', v: 'Years of vessel and dredger construction experience' },
+      { k: 'Since 2014', v: 'Shipyard open to external orders' },
+      { k: 'First tug', v: 'Built at our shipyard in January 2017' },
+    ],
+    neededTitle: 'When our shipyard is the right choice',
+    needed: [
+      'Dredgers, barges and pontoons built for your project requirements.',
+      'Tugboats and support vessels for ports and marine contractors.',
+      'Survey vessels and jack-ups.',
+      'Repair, refit and upgrade of existing vessels and dredging equipment.',
+      'Projects where a vessel needs to be designed around a specific site or task.',
+    ],
+    steps: [
+      { t: 'Understand the requirement', d: 'We work with the client on the vessel’s purpose, size, capacity and operating conditions.' },
+      { t: 'Design and plan', d: 'Our engineering team prepares the design and build plan.' },
+      { t: 'Build in our shipyard', d: 'Hull fabrication, fitting out and systems installation are carried out at our yard.' },
+      { t: 'Launch and test', d: 'The vessel is launched and put through trials and checks before handover.' },
+      { t: 'Deliver and support', d: 'The vessel is delivered to the client with documentation and ongoing support.' },
+    ],
+    equipmentTitle: 'What we build',
+    equipmentNote: 'We build the following types of vessels at our shipyard.',
+    equipmentCols: ['Vessel type', 'Includes', 'Used for'],
+    equipment: [
+      { type: 'Dredgers', cls: 'backhoe', units: 'Backhoe, grab and cutter suction dredgers', use: 'Built to suit dredging projects' },
+      { type: 'Barges and pontoons', cls: 'barge', units: 'Flat pontoons, barges and self-propelled hopper barges', use: 'Material transport and work platforms' },
+      { type: 'Tugs and support vessels', cls: 'tug', units: 'Tugs and support vessels', use: 'Positioning and support for marine works' },
+      { type: 'Survey vessels and jack-ups', cls: 'survey', units: 'Survey boats and jack-ups', use: 'Hydrographic survey and stable work platforms' },
+    ],
+    experience: [
+      { text: 'First tug built at our shipyard (January 2017).' },
+      { text: 'Shipyard opened to external orders (May 2014).' },
+    ],
   },
 }
