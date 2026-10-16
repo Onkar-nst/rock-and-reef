@@ -9,11 +9,11 @@ export default function Header({ active, solid = false }) {
   const [open, setOpen] = useState(false)
   const [quote, setQuote] = useState(false)
 
-  // Services, Projects, About and Contact have their own pages; Fleet is a home section.
+  // Services, Projects, About, Contact and Gallery have their own pages; Fleet is a home section.
   const go = (e, id) => {
     e.preventDefault()
     setOpen(false)
-    if (id === 'services' || id === 'projects' || id === 'about' || id === 'contact') {
+    if (id === 'services' || id === 'projects' || id === 'about' || id === 'contact' || id === 'gallery') {
       navigate(`/${id}`)
       return
     }
@@ -35,7 +35,7 @@ export default function Header({ active, solid = false }) {
           {nav.map((n) => (
             <a
               key={n.id}
-              href={['services', 'projects', 'about', 'contact'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
+              href={['services', 'projects', 'about', 'contact', 'gallery'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
               className={active === n.id ? 'active' : ''}
               onClick={(e) => go(e, n.id)}
             >
@@ -70,7 +70,7 @@ export default function Header({ active, solid = false }) {
           {nav.map((n) => (
             <a
               key={n.id}
-              href={['services', 'projects', 'about', 'contact'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
+              href={['services', 'projects', 'about', 'contact', 'gallery'].includes(n.id) ? `/${n.id}` : `#${n.id}`}
               onClick={(e) => go(e, n.id)}
             >
               {n.label}

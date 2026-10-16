@@ -147,8 +147,14 @@ function VesselPage({ cls, detail, v }) {
           </div>
         </div>
 
-        {(v.features || v.output) && (
+        {(v.features || v.output || v.video) && (
           <div className="wrap fv-extra">
+            {v.video && (
+              <figure className="fv-video">
+                <video src={v.video.src} poster={v.video.poster} controls playsInline preload="none" />
+                <figcaption>{v.video.caption}</figcaption>
+              </figure>
+            )}
             {v.features && (
               <div className="fp-features">
                 <h3>Other features</h3>

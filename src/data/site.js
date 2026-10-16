@@ -190,7 +190,7 @@ export const projects = [
     region: 'Kerala',
     client: 'IOCL, via Kochi Port',
     year: '2022',
-    img: '/img/project-1.png',
+    img: '/img/project-2.png',
     metrics: [
       { k: '1,450,000 m³', v: 'Dredged' },
       { k: '2022', v: 'Completed' },
@@ -214,7 +214,7 @@ export const projects = [
     region: 'Gujarat',
     client: 'Ferry terminal developer',
     year: '2023',
-    img: '/img/project-2.png',
+    img: '/img/project-1.png',
     metrics: [
       { k: '650,000 m³', v: 'Dredged' },
       { k: '4 km × 1 km', v: 'Navigable channel' },
@@ -283,7 +283,7 @@ export const projects = [
     region: 'Maharashtra',
     client: 'Sapura',
     year: '2019',
-    img: '/img/project-4.png',
+    img: '/img/project-3.png',
     metrics: [
       { k: '4 km', v: 'Corridor' },
       { k: 'Rock breaking', v: 'Method' },
@@ -406,7 +406,7 @@ export const differentiators = [
   {
     title: 'Unparalleled Execution',
     short: 'On programme, in live ports',
-    img: '/img/industrial-port-de-barcelona-1.jpg',
+    img: '/img/Dredging-Services.jpg',
     text: 'Projects delivered on programme in live ports, against monsoon siltation, currents and rock.',
   },
   {
@@ -424,13 +424,13 @@ export const differentiators = [
   {
     title: 'Client Centric Approach',
     short: 'Built around your brief',
-    img: '/img/Dredging-Services.jpg',
+    img: '/img/industrial-port-de-barcelona-1.jpg',
     text: 'Tailored solutions built around each client\u2019s requirements, with open communication and transparency from mobilisation to handover.',
   },
   {
     title: 'Environmental Stewardship',
     short: 'Sustainable by method',
-    img: '/img/about-us-2-min.jpg',
+    img: '/img/Environmental-Stewardship.jpg',
     text: 'Sustainable sediment management, geotextile placement and community engagement built into method statements.',
   },
 ]
@@ -467,6 +467,7 @@ export const nav = [
   { id: 'services', label: 'Services' },
   { id: 'projects', label: 'Projects' },
   { id: 'fleet', label: 'Fleet' },
+  { id: 'gallery', label: 'Gallery' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -500,6 +501,7 @@ export const clients = [
 // order (cards show the first three present, vessel pages the first four).
 export const fleetDetail = {
   backhoe: {
+    hero: '/img/fleet-1.jpg',
     headline: 'Pontoon-mounted excavators for rock and hard strata',
     intro: [
       'A backhoe dredger is a heavy hydraulic excavator mounted on a spud-anchored pontoon. The bucket digs with a direct, controlled force that suction plant cannot match, which makes it the tool of choice for rock, boulder clay, compacted gravel and debris, and for precise work close to existing structures.',
@@ -511,6 +513,9 @@ export const fleetDetail = {
         id: 'rock-king',
         name: 'Rock King',
         type: 'Backhoe dredger',
+        img: '/img/fleet/rock-king.jpg',
+        // Launch footage; poster is the first frame.
+        video: { src: '/video/rock-king-launch.mp4', poster: '/img/video-image.png', caption: 'Rock King at her launch' },
         summary: [
           'Rock King carries a Caterpillar 395 excavator rated at 542 HP (404 kW) on a 40 m by 12.5 m pontoon, digging to 16 m below the waterline.',
           'It works with two buckets, 3.8 m³ and 1.8 m³, so the crew can trade volume for breakout force: the larger bucket for loose and medium material, the smaller one where the ground turns to rock. A 2 m loaded draft keeps it working in shallow approaches.',
@@ -532,6 +537,7 @@ export const fleetDetail = {
         id: 'octopus',
         name: 'Octopus',
         type: 'Backhoe dredger',
+        img: '/img/fleet/octopus.jpg',
         summary: [
           'Octopus is the heavier of our two backhoe dredgers: a Liebherr R 984 C excavator rated at 685 HP (504 kW), working buckets of 5 m³ and 2.5 m³ to a depth of 15.5 m.',
           'Its deeper 3 m hull gives a stiffer platform for the larger bucket, which suits high-volume capital dredging and rock removal where output per cycle matters.',
@@ -553,6 +559,7 @@ export const fleetDetail = {
   },
 
   grab: {
+    hero: '/img/fleet/grab-hero.jpg',
     headline: 'Crane-mounted grabs for berths and confined pockets',
     intro: [
       'A grab dredger lowers a clamshell bucket from a crane on a stationary pontoon and lifts the material straight up. Because the grab works vertically, it reaches tight against quay walls, jetty piles and berth pockets where a cutter or backhoe cannot manoeuvre.',
@@ -564,6 +571,7 @@ export const fleetDetail = {
         id: 'rock-3',
         name: 'Rock 3',
         type: 'Grab dredger',
+        img: '/img/fleet/rock-3.jpg',
         summary: [
           'Rock 3 works a 4.5 m³ grab from an American 9270 crane. At 14 m it is one of the two widest pontoons in the group, giving a steady platform for heavy lifts alongside berths.',
         ],
@@ -582,6 +590,7 @@ export const fleetDetail = {
         id: 'rock-6',
         name: 'Rock 6',
         type: 'Grab dredger',
+        img: '/img/fleet/rock-6.jpg',
         summary: [
           'Rock 6 pairs an American 9270 crane with a 4.5 m³ grab on a 36 m pontoon. Its 0.6 m loaded draft is the shallowest in the grab fleet, so it can reach berths and channels before they have been deepened.',
         ],
@@ -600,6 +609,7 @@ export const fleetDetail = {
         id: 'rock-15',
         name: 'Rock 15',
         type: 'Grab dredger',
+        img: '/img/fleet/rock-15.jpg',
         summary: [
           'Rock 15 is the largest grab dredger by tonnage, a Liebherr 882 crane working a 4.5 m³ grab from a 35 m by 14 m pontoon.',
         ],
@@ -618,6 +628,7 @@ export const fleetDetail = {
         id: 'rock-18',
         name: 'Rock 18',
         type: 'Grab dredger',
+        img: '/img/fleet/rock-18.jpg',
         summary: [
           'Rock 18 carries a Liebherr 855 crane and a 4.5 m³ grab on a 36 m by 12 m pontoon, a compact unit for berth pockets and maintenance dredging.',
         ],
@@ -636,6 +647,7 @@ export const fleetDetail = {
         id: 'kartar',
         name: 'Kartar',
         type: 'Grab dredger',
+        img: '/img/fleet/kartar.jpg',
         summary: [
           'Kartar is the smallest grab dredger in the fleet: a Tata 955 crane on a 26 m by 10 m pontoon drawing 0.6 m loaded. It goes where larger plant cannot, into narrow creeks, small harbours and inland waters.',
         ],
@@ -717,6 +729,7 @@ export const fleetDetail = {
         id: 'rock-21',
         name: 'Rock 21',
         type: 'Cutter suction dredger',
+        img: '/img/fleet/rock-21.jpg',
         summary: [
           'Rock 21 is our compact cutter suction dredger: 20.1 m overall with a 350 mm cutter, dredging to 9 m. Its small hull and 1.51 m moulded depth suit shallow reservoirs, canals and intake channels where a larger dredger cannot be launched or turned.',
         ],
@@ -745,6 +758,7 @@ export const fleetDetail = {
         id: 'reef-1',
         name: 'Reef 1',
         type: 'Self-propelled hopper barge',
+        img: '/img/fleet/reef-1.jpg',
         summary: [
           'Reef 1 is the largest barge in the fleet at 58 m overall and 633 MT gross, the workhorse for long hauls to offshore disposal grounds.',
         ],
@@ -762,6 +776,7 @@ export const fleetDetail = {
         id: 'rock-1',
         name: 'Rock 1',
         type: 'Self-propelled hopper barge',
+        img: '/img/fleet/rock-1.jpg',
         summary: [
           'Rock 1 is a 51 m self-propelled hopper of 622 MT gross, working alongside the backhoe and grab dredgers on capital and maintenance dredging.',
         ],
@@ -779,6 +794,7 @@ export const fleetDetail = {
         id: 'rock-5',
         name: 'Rock 5',
         type: 'Split hopper barge',
+        img: '/img/fleet/rock-5.jpg',
         summary: [
           'Rock 5 is a split hopper barge: the hull opens along its length to release the whole load at once. A 0.5 m loaded draft lets it work in shallow water close to the dredger.',
         ],
@@ -796,6 +812,7 @@ export const fleetDetail = {
         id: 'rock-9',
         name: 'Rock 9',
         type: 'Self-propelled hopper barge',
+        img: '/img/fleet/rock-9.jpg',
         summary: [
           'Rock 9 is a 46 m self-propelled hopper of 533 MT gross, a compact barge for tighter harbours and shorter disposal runs.',
         ],
@@ -813,6 +830,7 @@ export const fleetDetail = {
         id: 'rock-12',
         name: 'Rock 12',
         type: 'Self-propelled hopper barge',
+        img: '/img/fleet/rock-12.jpg',
         summary: [
           'Rock 12 is a 52 m self-propelled hopper on a slim 10.2 m beam, 521.56 MT gross.',
         ],
@@ -830,6 +848,7 @@ export const fleetDetail = {
         id: 'phoenix-1',
         name: 'Phoenix 1',
         type: 'Self-propelled hopper barge',
+        img: '/img/fleet/phoenix-1.jpg',
         summary: [
           'Phoenix 1 shares Rock 1’s dimensions, 51 m overall and 622 MT gross, so the two can run as a matched pair behind a single dredger.',
         ],
@@ -847,6 +866,7 @@ export const fleetDetail = {
   },
 
   tug: {
+    hero: '/img/fleet/rockstar.jpg',
     headline: 'Towage, positioning and station keeping',
     intro: [
       'Most dredging plant has no propulsion of its own. Our tugs tow the dredgers between sites, place them on station, run anchors and hold barges alongside while they load, so the spread can be moved and repositioned without waiting on outside towage.',
@@ -858,6 +878,7 @@ export const fleetDetail = {
         id: 'rockstar',
         name: 'Rockstar',
         type: 'Tug',
+        img: '/img/fleet/rockstar.jpg',
         summary: [
           'Rockstar is the largest tug in the fleet: 24 m overall with 13 t of bollard pull and a 10 knot service speed, used to tow dredgers and barges between sites and along the coast.',
         ],
@@ -876,6 +897,7 @@ export const fleetDetail = {
         id: 'porunai',
         name: 'Porunai',
         type: 'Tug',
+        img: '/img/fleet/porunai.jpg',
         summary: [
           'Porunai is a 19.35 m harbour tug that positions dredgers and barges within the work area and assists with anchor handling.',
         ],
@@ -893,6 +915,7 @@ export const fleetDetail = {
         id: 'premrath',
         name: 'Premrath',
         type: 'Tug',
+        img: '/img/fleet/premrath.jpg',
         summary: [
           'Premrath is a 19.9 m harbour tug drawing 2 m, the shallowest of our tugs, for positioning and assist work in confined and shallow areas.',
         ],
@@ -921,6 +944,7 @@ export const fleetDetail = {
         id: 'reef-3',
         name: 'Reef 3',
         type: 'Survey boat',
+        img: '/img/fleet/reef-3.jpg',
         summary: [
           'Reef 3 is a 16.5 m survey boat that carries single and multi beam echo sounding for pre, progress and post dredge surveys. A 1.3 m loaded draft and 10 knot speed let it cover shallow areas and move quickly between survey lines.',
         ],
@@ -949,6 +973,7 @@ export const fleetDetail = {
         id: 'rock-7',
         name: 'Rock 7',
         type: 'Workboat',
+        img: '/img/fleet/rock-7.jpg',
         summary: [
           'Rock 7 is a 14 m workboat for crew transfer and short runs within the work area.',
         ],
@@ -966,6 +991,7 @@ export const fleetDetail = {
         id: 'reef-7',
         name: 'Reef 7',
         type: 'Workboat',
+        img: '/img/fleet/reef-7.jpg',
         summary: [
           'Reef 7 is a 14 m workboat with an 8 knot speed, used for crew changes and supervision across larger sites.',
         ],
@@ -983,6 +1009,7 @@ export const fleetDetail = {
         id: 'mahalaxmi',
         name: 'Mahalaxmi',
         type: 'Workboat',
+        img: '/img/fleet/mahalaxmi.jpg',
         summary: [
           'Mahalaxmi is the longest of our workboats and the shallowest, drawing 1.2 m loaded, for crew transfer and landing at shallow shore points.',
         ],

@@ -3,7 +3,7 @@ import { scrollToId } from '../hooks'
 import { navigate } from '../router'
 
 // Pages that exist on their own route; everything else is a home-page section.
-const PAGES = { about: '/about', services: '/services', projects: '/projects' }
+const PAGES = { about: '/about', services: '/services', projects: '/projects', gallery: '/gallery' }
 
 export default function Footer() {
   const go = (e, id) => {

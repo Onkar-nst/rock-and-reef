@@ -19,6 +19,7 @@ import ProjectsPage from './components/ProjectsPage'
 import FleetPage from './components/FleetPage'
 import AboutPage from './components/AboutPage'
 import ContactPage from './components/ContactPage'
+import GalleryPage from './components/GalleryPage'
 import { useRoute, navigate } from './router'
 
 export default function App() {
@@ -50,6 +51,17 @@ export default function App() {
       <>
         <Header active="contact" solid />
         <ContactPage />
+        <Footer />
+        <WhatsApp />
+      </>
+    )
+  }
+
+  if (route === '/gallery') {
+    return (
+      <>
+        <Header active="gallery" solid />
+        <GalleryPage />
         <Footer />
         <WhatsApp />
       </>
