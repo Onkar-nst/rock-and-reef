@@ -440,25 +440,25 @@ export const leadership = [
     name: 'Harsharan Singh Dharni',
     role: 'Managing Director',
     img: '/img/Harsharan-Singh-Dharni.jpg',
-    bio: '25+ years of dredging expertise; developed the specialised backhoe dredger equipment at the core of the fleet.',
-  },
-  {
-    name: 'Parminder Singh Dharni',
-    role: 'Director',
-    img: '/img/Mr.-Parmindar-Singh-Dharni.png',
-    bio: 'Has executed some of the most challenging projects in the country, including capital dredging at Mundra Port.',
+    bio: 'An experienced dredging expert with 30+ years of industry knowledge, successfully managing projects and introducing advanced equipment like the backhoe dredger in India.',
   },
   {
     name: 'Manish Shah',
-    role: 'Director',
+    role: 'Director - Supply Chain',
     img: '/img/Manish-Shaha.png',
-    bio: 'Brings a strong vendor network and deep industry supply chain expertise to project mobilisation.',
+    bio: 'Comes from a family of marine entrepreneurs with over 50 years in the industry. Responsible for Supply Chain, having a strong vendor network in India.',
+  },
+  {
+    name: 'Parminder Singh Dharni',
+    role: 'Director - Operations',
+    img: '/img/parminder.png',
+    bio: 'Recognized in the dredging industry for completing challenging projects, he is the operational genius behind the company’s success, ensuring timely project completion and a strong track record.',
   },
   {
     name: 'Gurudayal Singh Dhanotra',
-    role: 'Director',
+    role: 'Director - Engineering',
     img: '/img/Mr.-Gurudayal-Singh-Dhanotra.jpg',
-    bio: '30 years of shipbuilding experience across hopper barges, tugs and dredgers.',
+    bio: 'The expert in shipbuilding has 30 years of experience managing projects constructing various marine vessels and dredging equipment, showcasing high expertise in the field.',
   },
 ]
 
@@ -680,7 +680,6 @@ export const fleetDetail = {
         name: 'Brahmaputra',
         type: 'IHC Beaver 45 cutter suction dredger',
         img: '/img/csd-brahmaputra.jpg',
-        pdf: '/docs/csd-brahmaputra-specifications.pdf',
         summary: [
           'A robust and highly productive dredger built for low cost per cubic metre: an exceptional rate of pumping power, a Cutter Special pump with a large ball passage for high availability, a single low maintenance diesel engine, and first class ergonomics and diagnostics on board.',
         ],

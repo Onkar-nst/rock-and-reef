@@ -720,7 +720,7 @@ a.svc-row-head { padding-right: 6px; }
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 5vw, 72px); align-items: stretch; }
 .contact-info { display: flex; flex-direction: column; }
-@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .cap-strip { margin-top: 28px; } }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
 .contact-list { list-style: none; padding: 0; margin: 34px 0 28px; display: grid; gap: 0; }
 .contact-list li { display: grid; gap: 3px; padding: 16px 0; border-bottom: 1px solid var(--line-dk); }
@@ -728,16 +728,6 @@ a.svc-row-head { padding-right: 6px; }
 .contact-list .k { font-family: var(--display); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--amber); }
 .contact-list .v { color: #fff; font-size: 16px; transition: color .2s; }
 .contact-list a.v:hover { color: var(--amber); }
-
-/* Download prompt reads as a bar, not another card. */
-.cap-strip {
-  display: flex; gap: 16px; align-items: flex-start; margin-top: auto; padding: 18px 20px;
-  border-left: 3px solid var(--amber); background: rgba(255,255,255,.04); transition: background .25s;
-}
-.cap-strip:hover { background: rgba(var(--accent-rgb), .12); }
-.cap-strip .ic { width: 40px; height: 40px; flex: none; border: 1px solid var(--amber); color: var(--amber); display: grid; place-items: center; }
-.cap-strip .t { font-family: var(--display); text-transform: uppercase; font-size: 19px; color: #fff; display: block; }
-.cap-strip .d { font-size: 13px; color: rgba(255,255,255,.62); display: block; margin-top: 5px; }
 
 /* The enquiry form is the one dark block on the page, so it reads as the thing
    to act on rather than another pale panel. */
@@ -785,12 +775,6 @@ form { display: grid; gap: 20px; align-content: start; }
   .field input, .field select, .field textarea { padding: 9px 11px; font-size: 14.5px; }
   .field textarea { min-height: 80px; }
   .form-foot { padding-top: 14px; }
-  /* Capability statement strip: compact single-line title, shorter blurb. */
-  .cap-strip { padding: 12px 14px; gap: 12px; align-items: center; }
-  .cap-strip .ic { width: 32px; height: 32px; }
-  .cap-strip .ic svg { width: 16px; height: 16px; }
-  .cap-strip .t { font-size: 15px; }
-  .cap-strip .d { font-size: 12px; margin-top: 2px; }
 }
 .contact-panel .btn-primary { justify-self: start; }
 .form-note { font-size: 12.5px; color: rgba(255,255,255,.55); margin: 0; max-width: 30ch; }
@@ -895,13 +879,6 @@ form { display: grid; gap: 20px; align-content: start; }
 .contact-list li:first-child { border-top-color: var(--line); }
 .contact-list .k { color: var(--amber-dk); }
 .contact-list .v { color: var(--ink); }
-/* Download prompt stays dark, so it reads as the one accent block in the
-   otherwise light contact column. */
-.cap-strip { background: var(--ink-2); }
-.cap-strip:hover { background: var(--ink-3); }
-.cap-strip .t { color: #fff; }
-.cap-strip .d { color: rgba(255,255,255,.68); }
-.cap-strip .ic { border-color: var(--accent); color: var(--accent); }
 
 
 /* Buttons that assumed a dark ground */
@@ -1663,17 +1640,6 @@ form { display: grid; gap: 20px; align-content: start; }
   margin-bottom: clamp(22px, 3vw, 34px);
 }
 .fp-vessel-head h2 { font-size: clamp(30px, 4.2vw, 56px); text-transform: uppercase; color: var(--ink); line-height: 1; }
-.fp-download {
-  display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px 12px 14px;
-  border: 1px solid var(--ink); color: var(--ink); background: var(--paper);
-  font-family: var(--display); text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 600;
-  transition: background .2s, color .2s;
-}
-.fp-download:hover { background: var(--ink); color: #fff; }
-.fp-download-type {
-  padding: 3px 7px; border-radius: 2px; font-size: 10px; letter-spacing: .12em;
-  background: var(--accent); color: #08202b;
-}
 
 /* Photo beside summary and headline figures. */
 .fp-vessel-top {
@@ -2994,9 +2960,21 @@ form { display: grid; gap: 20px; align-content: start; }
 }
 
 /* ── 3. Our Mission & Vision ── */
-/* One dark band, two statements side by side on a hairline: no cards, no
-   badges, the words carry it. */
 .ab-mv { background: var(--ink); color: #fff; padding: clamp(48px, 6vw, 84px) 0; }
+.ab-mv-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #0066b2;
+  color: #ffffff;
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 800;
+  padding: 10px 36px 10px 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
 .ab-mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
 .ab-mv-col { position: relative; }
 .ab-mv-col:first-child { padding-right: clamp(24px, 3vw, 48px); }
@@ -3007,13 +2985,27 @@ form { display: grid; gap: 20px; align-content: start; }
   color: var(--accent);
 }
 .ab-mv-label::after { content: ''; flex: 0 0 34px; height: 1px; background: rgba(var(--accent-rgb), .5); }
-.ab-mv-text { margin: 0; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.6; color: rgba(255,255,255,.88); max-width: 46ch; }
+.ab-mv-text { margin: 0; font-size: clamp(15.5px, 1.35vw, 17.5px); line-height: 1.7; color: rgba(255,255,255,.88); }
+.ab-mv-media {
+  margin-top: clamp(36px, 5vw, 56px);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.ab-mv-media img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
 @media (max-width: 800px) {
   .ab-mv-grid { grid-template-columns: 1fr; gap: 32px; }
   .ab-mv-col + .ab-mv-col { padding-left: 0; margin-left: 0; border-left: 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.14); }
 }
 
-/* ── 4. Founders ── */
+/* ── 4. Team ── */
 .ab-exact-founders {
   background: #ffffff;
   padding: clamp(60px, 8vw, 100px) 0;
@@ -3022,11 +3014,108 @@ form { display: grid; gap: 20px; align-content: start; }
   text-align: center;
   margin-bottom: clamp(36px, 5vw, 60px);
 }
+.ab-exact-team-title {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  color: #0f4c81;
+  text-transform: capitalize;
+  margin: 0 0 10px;
+}
 .ab-exact-founders-sub {
   font-size: clamp(14.5px, 1.2vw, 16.5px);
   color: var(--steel);
   margin: 8px 0 0;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
 }
+.ab-exact-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 2.5vw, 30px);
+}
+@media (max-width: 1024px) {
+  .ab-exact-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .ab-exact-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ab-exact-team-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: clamp(24px, 2.5vw, 32px) clamp(16px, 1.8vw, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.ab-exact-team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -12px rgba(8, 35, 51, 0.16);
+  border-color: #cbd5e1;
+  background: #ffffff;
+}
+.ab-exact-team-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e2e8f0;
+  box-shadow: 0 6px 18px rgba(8, 35, 51, 0.12);
+  margin-bottom: 20px;
+  border: 3px solid #ffffff;
+  flex-shrink: 0;
+}
+.ab-exact-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%);
+  transition: filter 0.3s, transform 0.3s;
+}
+.ab-exact-team-card:hover .ab-exact-team-photo img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+.ab-exact-team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.ab-exact-team-name {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f4c81;
+  margin: 0 0 4px;
+  letter-spacing: 0.01em;
+}
+.ab-exact-team-role {
+  display: block;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+.ab-exact-team-bio {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--steel);
+  margin: 0;
+}
+
+/* Also support legacy founder card classes for backwards compatibility */
 .ab-exact-founders-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3098,6 +3187,18 @@ form { display: grid; gap: 20px; align-content: start; }
   line-height: 1.65;
   color: var(--steel);
   margin: 0;
+}
+
+/* Slide 2 Image Accent Ribbon */
+.ab-exact-img-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 22px;
+  background: #0066b2;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  z-index: 2;
 }
 
 /* Phones: photo with name and role beside it, bio full width underneath,

@@ -49,21 +49,6 @@ export default function Contact() {
               <span className="v">{company.address}</span>
             </li>
           </ul>
-
-          <a className="cap-strip" href="/capability-statement.pdf" download>
-            <span className="ic" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" />
-              </svg>
-            </span>
-            <span>
-              <span className="t">Capability Statement (PDF)</span>
-              <span className="d">
-                Fleet list, completed project summary and certifications, one document your
-                procurement or tender team can circulate before a call.
-              </span>
-            </span>
-          </a>
         </div>
 
         <div className="contact-panel reveal">

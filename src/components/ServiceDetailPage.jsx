@@ -100,9 +100,6 @@ export default function ServiceDetailPage({ id }) {
                   <article className="rn-card" key={f.id}>
                     <div className="rn-card-top">
                       <h3>{f.name}</h3>
-                      <a className="rn-link sm" href="/capability-statement.pdf" download>
-                        Specifications (PDF)
-                      </a>
                     </div>
                     <div className="rn-card-shape">
                       <img src={f.img} alt={f.name} loading="lazy" decoding="async" />
