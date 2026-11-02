@@ -297,17 +297,6 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/reef-1-hopper-barge-05.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-05.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from ahead, looking along the hopper",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/reef-1-hopper-barge-06.jpg",
     "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-06.jpg",
     "type": "image",
@@ -330,41 +319,8 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/reef-1-hopper-barge-08.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-08.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the bow quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/reef-1-hopper-barge-09.jpg",
     "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-09.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the bow quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/reef-1-hopper-barge-10.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-10.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the bow quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/reef-1-hopper-barge-11.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-11.jpg",
     "type": "image",
     "cat": "fleet",
     "title": "Reef 1 – Hopper Barge – Rock and Reef",
@@ -387,17 +343,6 @@ export const media = [
   {
     "src": "/media/2026/10/reef-1-hopper-barge-13.jpg",
     "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-13.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the stern quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/reef-1-hopper-barge-14.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-14.jpg",
     "type": "image",
     "cat": "fleet",
     "title": "Reef 1 – Hopper Barge – Rock and Reef",
@@ -440,30 +385,8 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/reef-1-hopper-barge-18.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-18.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the stern quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/reef-1-hopper-barge-19.jpg",
     "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-19.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Reef 1 – Hopper Barge – Rock and Reef",
-    "alt": "Reef 1 self-propelled hopper barge, aerial view from the stern quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/reef-1-hopper-barge-20.jpg",
-    "thumb": "/media/thumbs/2026/10/reef-1-hopper-barge-20.jpg",
     "type": "image",
     "cat": "fleet",
     "title": "Reef 1 – Hopper Barge – Rock and Reef",
@@ -506,17 +429,6 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/rock-1-hopper-barge-04.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-04.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 1 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 1 self-propelled hopper barge, aerial view from ahead, looking along the hopper",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/rock-1-hopper-barge-05.jpg",
     "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-05.jpg",
     "type": "image",
@@ -550,17 +462,6 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/rock-1-hopper-barge-08.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-08.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 1 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 1 self-propelled hopper barge, aerial view from the bow quarter",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/rock-1-hopper-barge-09.jpg",
     "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-09.jpg",
     "type": "image",
@@ -583,41 +484,8 @@ export const media = [
     "date": "2026-10-31"
   },
   {
-    "src": "/media/2026/10/rock-1-hopper-barge-11.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-11.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 1 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 1 self-propelled hopper barge, aerial view along the hull",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/rock-1-hopper-barge-12.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-12.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 1 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 1 self-propelled hopper barge, aerial view along the hull",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
     "src": "/media/2026/10/rock-1-hopper-barge-13.jpg",
     "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-13.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 1 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 1 self-propelled hopper barge, aerial view along the hull",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/rock-1-hopper-barge-14.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-1-hopper-barge-14.jpg",
     "type": "image",
     "cat": "fleet",
     "title": "Rock 1 – Hopper Barge – Rock and Reef",
@@ -651,39 +519,6 @@ export const media = [
   {
     "src": "/media/2026/10/rock-9-hopper-barge-03.jpg",
     "thumb": "/media/thumbs/2026/10/rock-9-hopper-barge-03.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 9 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 9 self-propelled hopper barge, close aerial view of the bow and foredeck",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/rock-9-hopper-barge-04.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-9-hopper-barge-04.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 9 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 9 self-propelled hopper barge, close aerial view of the bow and foredeck",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/rock-9-hopper-barge-05.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-9-hopper-barge-05.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock 9 – Hopper Barge – Rock and Reef",
-    "alt": "Rock 9 self-propelled hopper barge, close aerial view of the bow and foredeck",
-    "w": 1920,
-    "h": 1439,
-    "date": "2026-10-31"
-  },
-  {
-    "src": "/media/2026/10/rock-9-hopper-barge-06.jpg",
-    "thumb": "/media/thumbs/2026/10/rock-9-hopper-barge-06.jpg",
     "type": "image",
     "cat": "fleet",
     "title": "Rock 9 – Hopper Barge – Rock and Reef",
@@ -812,28 +647,6 @@ export const media = [
     "w": 1672,
     "h": 941,
     "date": "2026-07-26"
-  },
-  {
-    "src": "/media/2026/07/Rock-King-–-Adavanced-Backhoe-Dredger-Rock-and-Reef.jpg",
-    "thumb": "/media/thumbs/2026/07/Rock-King-–-Adavanced-Backhoe-Dredger-Rock-and-Reef.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Rock King – Adavanced Backhoe Dredger – Rock and Reef",
-    "alt": "",
-    "w": 1024,
-    "h": 767,
-    "date": "2026-07-20"
-  },
-  {
-    "src": "/media/2026/07/rock-king-image.webp",
-    "thumb": "/media/thumbs/2026/07/rock-king-image.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "rock king image",
-    "alt": "",
-    "w": 1280,
-    "h": 959,
-    "date": "2026-07-20"
   },
   {
     "src": "/media/2026/06/Maintenance-Dredging-for-Ports-in-India-Why-It-Matters-Rock-and-Reef.jpg",
@@ -2178,17 +1991,6 @@ export const media = [
     "date": "2025-01-20"
   },
   {
-    "src": "/media/2025/01/Barge-Maintenance-Services-in-India-Rock-and-Reef.jpg",
-    "thumb": "/media/thumbs/2025/01/Barge-Maintenance-Services-in-India-Rock-and-Reef.jpg",
-    "type": "image",
-    "cat": "services",
-    "title": "Barge Maintenance Services in India – Rock and Reef",
-    "alt": "Barge Maintenance Services in India - Rock and Reef",
-    "w": 1280,
-    "h": 959,
-    "date": "2025-01-20"
-  },
-  {
     "src": "/media/2025/01/Dredging-Companies-Services-Experts-in-Gulf-Countries-by-Rock-and-Reef.jpg",
     "thumb": "/media/thumbs/2025/01/Dredging-Companies-Services-Experts-in-Gulf-Countries-by-Rock-and-Reef.jpg",
     "type": "image",
@@ -3179,17 +2981,6 @@ export const media = [
     "date": "2023-06-26"
   },
   {
-    "src": "/media/2023/06/Grab-Dredgers.jpg",
-    "thumb": "/media/thumbs/2023/06/Grab-Dredgers.jpg",
-    "type": "image",
-    "cat": "fleet",
-    "title": "Grab Dredgers",
-    "alt": "",
-    "w": 380,
-    "h": 250,
-    "date": "2023-06-26"
-  },
-  {
     "src": "/media/2023/06/Cutter-Suction-Dredgers.jpg",
     "thumb": "/media/thumbs/2023/06/Cutter-Suction-Dredgers.jpg",
     "type": "image",
@@ -3198,39 +2989,6 @@ export const media = [
     "alt": "",
     "w": 380,
     "h": 350,
-    "date": "2023-06-26"
-  },
-  {
-    "src": "/media/2023/06/hydro.png",
-    "thumb": "/media/thumbs/2023/06/hydro.jpg",
-    "type": "image",
-    "cat": "services",
-    "title": "hydro",
-    "alt": "",
-    "w": 622,
-    "h": 363,
-    "date": "2023-06-26"
-  },
-  {
-    "src": "/media/2023/06/trenching.png",
-    "thumb": "/media/thumbs/2023/06/trenching.jpg",
-    "type": "image",
-    "cat": "services",
-    "title": "Trenching Works Services in India | Rock and Reef",
-    "alt": "Trenching Works Services in India | Rock and Reef",
-    "w": 624,
-    "h": 360,
-    "date": "2023-06-26"
-  },
-  {
-    "src": "/media/2023/06/shipbuilding.png",
-    "thumb": "/media/thumbs/2023/06/shipbuilding.jpg",
-    "type": "image",
-    "cat": "services",
-    "title": "shipbuilding",
-    "alt": "",
-    "w": 624,
-    "h": 364,
     "date": "2023-06-26"
   },
   {
@@ -3278,45 +3036,12 @@ export const media = [
     "date": "2023-06-22"
   },
   {
-    "src": "/media/2023/06/pv3.jpg",
-    "thumb": "/media/thumbs/2023/06/pv3.jpg",
-    "type": "image",
-    "cat": "projects",
-    "title": "Offshore Works, Mumbai (pipe laying and trenching)",
-    "alt": "Offshore Works, Mumbai (pipe laying and trenching)",
-    "w": 500,
-    "h": 550,
-    "date": "2023-06-22"
-  },
-  {
-    "src": "/media/2023/06/ph2.jpg",
-    "thumb": "/media/thumbs/2023/06/ph2.jpg",
-    "type": "image",
-    "cat": "projects",
-    "title": "ph2",
-    "alt": "",
-    "w": 1000,
-    "h": 500,
-    "date": "2023-06-22"
-  },
-  {
     "src": "/media/2023/06/pv2.jpg",
     "thumb": "/media/thumbs/2023/06/pv2.jpg",
     "type": "image",
     "cat": "projects",
     "title": "Ferry Terminal, Gogha",
     "alt": "Ferry Terminal, Gogha",
-    "w": 500,
-    "h": 550,
-    "date": "2023-06-22"
-  },
-  {
-    "src": "/media/2023/06/pv1.jpg",
-    "thumb": "/media/thumbs/2023/06/pv1.jpg",
-    "type": "image",
-    "cat": "projects",
-    "title": "MULT Project, Kochi Port (Capital Dredging)",
-    "alt": "MULT Project, Kochi Port (Capital Dredging)",
     "w": 500,
     "h": 550,
     "date": "2023-06-22"
@@ -3353,5 +3078,5 @@ export const media = [
     "w": 1920,
     "h": 1280,
     "date": "2021-11-05"
-  },
+  }
 ]
