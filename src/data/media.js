@@ -1078,17 +1078,6 @@ export const media = [
     "date": "2026-03-31"
   },
   {
-    "src": "/media/2026/03/ezyZip.mp4",
-    "thumb": "/media/thumbs/2026/03/ezyZip.jpg",
-    "type": "video",
-    "cat": "video",
-    "title": "ezyZip",
-    "alt": "",
-    "w": 464,
-    "h": 832,
-    "date": "2026-03-27"
-  },
-  {
     "src": "/media/2026/03/Marine-Trenching-for-Offshore-Pipelines-and-Subsea-Cable-Installation-Complete-Engineering-Guide-Rock-and-Reef.jpeg",
     "thumb": "/media/thumbs/2026/03/Marine-Trenching-for-Offshore-Pipelines-and-Subsea-Cable-Installation-Complete-Engineering-Guide-Rock-and-Reef.jpg",
     "type": "image",
