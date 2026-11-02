@@ -12,7 +12,7 @@ const PAGE = 36
 // Paths carry WordPress filenames with spaces, dashes and other odd characters.
 const url = (p) => encodeURI(p)
 
-// "All" leads with our own fleet and site photography, insights and brand last.
+// "All" leads with our own fleet and site photography, insights last.
 const ORDER = mediaCategories.map((c) => c.id)
 const ALL = [...media].sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat))
 

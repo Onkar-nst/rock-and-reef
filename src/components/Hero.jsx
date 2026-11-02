@@ -9,16 +9,7 @@ export default function Hero() {
         {reduced ? (
           <img src="/img/hero-still.jpg" alt="Rock King backhoe dredger under tow" width="1600" height="900" />
         ) : (
-          <video
-            src="/video/hero.mp4"
-            poster="/img/hero-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          />
+          <img src="/video/hero.gif" alt="" width="400" height="225" aria-hidden="true" />
         )}
       </div>
 

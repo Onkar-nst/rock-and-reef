@@ -150,8 +150,14 @@ section { scroll-margin-top: 78px; }
 /* Full-bleed footage with almost no scrim — only a soft wash behind the copy,
    so the video stays the subject. */
 .hero { position: relative; min-height: calc(100svh + 40px); display: flex; overflow: hidden; background: var(--ink); }
-.hero-media { position: absolute; inset: 0; }
-.hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-media { position: absolute; inset: 0; overflow: hidden; }
+.hero-media video, .hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.22);
+  transform-origin: 12% 12%;
+}
 /* Even wash over the footage plus a heavier left/bottom fall-off, so a full
    block of copy stays legible without hiding the video. */
 .hero-media::after {
