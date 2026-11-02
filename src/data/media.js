@@ -7,9 +7,6 @@ export const mediaCategories = [
   { id: 'projects', label: 'Projects' },
   { id: 'services', label: 'Services' },
   { id: 'video', label: 'Video' },
-  { id: 'company', label: 'Company' },
-  { id: 'team', label: 'Leadership' },
-  { id: 'insights', label: 'Insights' },
 ]
 
 export const media = [

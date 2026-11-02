@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { media, mediaCategories } from '../data/media'
+import { media as library, mediaCategories } from '../data/media'
 import { navigate } from '../router'
 
 /**
@@ -12,8 +12,9 @@ const PAGE = 36
 // Paths carry WordPress filenames with spaces, dashes and other odd characters.
 const url = (p) => encodeURI(p)
 
-// "All" leads with our own fleet and site photography, insights last.
+// Only categories listed in mediaCategories are shown; "All" follows their order.
 const ORDER = mediaCategories.map((c) => c.id)
+const media = library.filter((m) => ORDER.includes(m.cat))
 const ALL = [...media].sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat))
 
 const CATS = mediaCategories
