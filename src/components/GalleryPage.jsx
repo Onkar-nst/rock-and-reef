@@ -3,8 +3,8 @@ import { media, mediaCategories } from '../data/media'
 import { navigate } from '../router'
 
 /**
- * The full media library: every photo and video from the previous site,
- * filterable by category. Tiles load 640px thumbnails; the lightbox opens the
+ * The public media library: fleet, project, service and video files, filterable
+ * by category. Tiles load 640px thumbnails; the lightbox opens the
  * original file.
  */
 const PAGE = 36
@@ -12,12 +12,16 @@ const PAGE = 36
 // Paths carry WordPress filenames with spaces, dashes and other odd characters.
 const url = (p) => encodeURI(p)
 
-// "All" leads with our own fleet and site photography, insights last.
+// Kept in the project but not shown here. Leadership photos are used on the About page.
+const HIDDEN = ['company', 'team', 'insights']
+const SHOWN = media.filter((m) => !HIDDEN.includes(m.cat))
+
+// "All" leads with our own fleet and site photography.
 const ORDER = mediaCategories.map((c) => c.id)
-const ALL = [...media].sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat))
+const ALL = [...SHOWN].sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat))
 
 const CATS = mediaCategories
-  .map((c) => ({ ...c, count: media.filter((m) => m.cat === c.id).length }))
+  .map((c) => ({ ...c, count: SHOWN.filter((m) => m.cat === c.id).length }))
   .filter((c) => c.count > 0)
 
 export default function GalleryPage() {
@@ -25,7 +29,7 @@ export default function GalleryPage() {
   const [shown, setShown] = useState(PAGE)
   const [open, setOpen] = useState(-1)
 
-  const list = filter === 'all' ? ALL : media.filter((m) => m.cat === filter)
+  const list = filter === 'all' ? ALL : SHOWN.filter((m) => m.cat === filter)
   const visible = list.slice(0, shown)
 
   const pick = (id) => {
@@ -44,7 +48,7 @@ export default function GalleryPage() {
           </p>
           <h1 className="page-title">Gallery</h1>
           <p className="page-lede">
-            The fleet, the sites and the people behind them: {media.length} photos and videos from
+            The fleet and the sites: {SHOWN.length} photos and videos from
             our dredging, trenching and marine works.
           </p>
         </div>
@@ -54,7 +58,7 @@ export default function GalleryPage() {
         <div className="wrap">
           <div className="pj-filter-row" role="tablist" aria-label="Filter gallery by category">
             <button role="tab" aria-selected={filter === 'all'} className={filter === 'all' ? 'on' : ''} onClick={() => pick('all')}>
-              All <span className="gl-count">{media.length}</span>
+              All <span className="gl-count">{SHOWN.length}</span>
             </button>
             {CATS.map((c) => (
               <button key={c.id} role="tab" aria-selected={filter === c.id} className={filter === c.id ? 'on' : ''} onClick={() => pick(c.id)}>
