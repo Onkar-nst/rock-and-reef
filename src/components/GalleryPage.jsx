@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { media, mediaCategories } from '../data/media'
+import { media as library, mediaCategories } from '../data/media'
 import { navigate } from '../router'
 
 /**
@@ -12,12 +12,9 @@ const PAGE = 36
 // Paths carry WordPress filenames with spaces, dashes and other odd characters.
 const url = (p) => encodeURI(p)
 
-// Kept in the project but not shown here. Leadership photos are used on the About page.
-const HIDDEN = ['company', 'team', 'insights']
-const SHOWN = media.filter((m) => !HIDDEN.includes(m.cat))
-
-// "All" leads with our own fleet and site photography.
+// Only categories listed in mediaCategories are shown; "All" follows their order.
 const ORDER = mediaCategories.map((c) => c.id)
+const SHOWN = library.filter((m) => ORDER.includes(m.cat))
 const ALL = [...SHOWN].sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat))
 
 const CATS = mediaCategories

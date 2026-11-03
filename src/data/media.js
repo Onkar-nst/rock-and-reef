@@ -7,12 +7,251 @@ export const mediaCategories = [
   { id: 'projects', label: 'Projects' },
   { id: 'services', label: 'Services' },
   { id: 'video', label: 'Video' },
-  { id: 'company', label: 'Company' },
-  { id: 'team', label: 'Leadership' },
-  { id: 'insights', label: 'Insights' },
 ]
 
 export const media = [
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0259.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0259.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger on the slipway with spuds raised, aerial view with the river behind",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0277.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0277.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger beside a hopper barge at the shipyard, aerial view from astern",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0279.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0279.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger and hopper barge at the shipyard, wider aerial view from astern",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0285.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0285.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger with its three spuds and excavator boom, aerial view across the shipyard",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0289.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0289.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Workboats, a crane barge and tugs moored together on the river",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0293.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0293.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger at the quay, low aerial view of the spuds and covered excavator",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-aerial-0295.jpg",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-aerial-0295.jpg",
+    "type": "image",
+    "cat": "fleet",
+    "title": "Backhoe Dredger – Rock and Reef",
+    "alt": "Backhoe dredger deck with the excavator under cover, close aerial view",
+    "w": 1920,
+    "h": 1440,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0261.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0261.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage of the backhoe dredger on the slipway, flying in from the river side",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0265.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0265.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage circling the backhoe dredger and a hopper barge at the shipyard",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0269.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0269.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage over the backhoe dredger deck",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0271.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0271.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage of the backhoe dredger alongside a work pontoon",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0273.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0273.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage of the excavator boom with a tug alongside",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0299.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0299.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage close over the covered excavator on the dredger deck",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0301.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0301.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Wide drone footage of the shipyard with the backhoe dredger on the slipway",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0303.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0303.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage rising past the backhoe dredger spuds",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0305.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0305.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage of the backhoe dredger under tow on the river",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0307.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0307.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage of tugs manoeuvring the backhoe dredger",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0309.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0309.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage of the backhoe dredger with a tug alongside",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0311.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0311.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage of the backhoe dredger and tugs on the river",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0313.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0313.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Close top-down drone footage of the backhoe dredger deck and spud wells",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0315.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0315.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Top-down drone footage following the backhoe dredger and its tugs",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
+  {
+    "src": "/media/2026/11/backhoe-dredger-drone-0319.mp4",
+    "thumb": "/media/thumbs/2026/11/backhoe-dredger-drone-0319.jpg",
+    "type": "video",
+    "cat": "video",
+    "title": "Backhoe Dredger – Drone Footage – Rock and Reef",
+    "alt": "Drone footage of the backhoe dredger and tugs on the river, shipyard behind",
+    "w": 1920,
+    "h": 1080,
+    "date": "2026-11-02"
+  },
   {
     "src": "/media/2026/10/rock-king-shipyard-overview.mp4",
     "thumb": "/media/thumbs/2026/10/rock-king-shipyard-overview.jpg",
@@ -2806,5 +3045,5 @@ export const media = [
     "w": 1920,
     "h": 1280,
     "date": "2021-11-05"
-  },
+  }
 ]
